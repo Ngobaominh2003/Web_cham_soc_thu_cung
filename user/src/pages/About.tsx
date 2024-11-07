@@ -13,42 +13,40 @@ const About: React.FC = () => {
                 <div className="container py-5">
                     <div className="row py-5">
                         <div className="col-lg-7 pb-5 pb-lg-0 px-3 px-lg-5">
-                            <h4 className="text-secondary mb-3">About Us</h4>
+                            <h4 className="text-secondary mb-3">Về Chúng Tôi</h4>
                             <h1 className="display-4 mb-4">
-                                <span className="text-primary">Boarding</span> &amp;{" "}
-                                <span className="text-secondary">Daycare</span>
+                                <span className="text-primary">Lưu Trú</span> &amp;{" "}
+                                <span className="text-secondary">Chăm Sóc Ban Ngày</span>
                             </h1>
                             <h5 className="text-muted mb-3">
-                                Amet stet amet ut. Sit no vero vero no dolor. Sed erat ut sea. Just
-                                clita ut stet kasd at diam sit erat vero sit.
+                                Luôn đồng hành và tận tâm. Sẵn sàng đáp ứng mọi nhu cầu. Dịch vụ tốt nhất cho thú cưng của bạn.
                             </h5>
                             <p className="mb-4">
-                                Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed
-                                et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed
-                                sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo
+                                Chúng tôi cam kết mang đến cho thú cưng của bạn sự thoải mái và vui vẻ nhất. Dịch vụ của chúng tôi
+                                luôn an toàn, chu đáo và chuyên nghiệp. Chúng tôi hiểu rằng thú cưng là một thành viên trong gia đình của bạn.
                             </p>
                             <ul className="list-inline">
                                 <li>
                                     <h5>
                                         <i className="fa fa-check-double text-secondary mr-3" />
-                                        Best In Industry
+                                        Tốt Nhất Trong Ngành
                                     </h5>
                                 </li>
                                 <li>
                                     <h5>
                                         <i className="fa fa-check-double text-secondary mr-3" />
-                                        Emergency Services
+                                        Dịch Vụ Khẩn Cấp
                                     </h5>
                                 </li>
                                 <li>
                                     <h5>
                                         <i className="fa fa-check-double text-secondary mr-3" />
-                                        24/7 Customer Support
+                                        Hỗ Trợ Khách Hàng 24/7
                                     </h5>
                                 </li>
                             </ul>
                             <a href="" className="btn btn-lg btn-primary mt-3 px-4">
-                                Learn More
+                                Tìm Hiểu Thêm
                             </a>
                         </div>
                         <div className="col-lg-5">
@@ -66,6 +64,7 @@ const About: React.FC = () => {
                         </div>
                     </div>
                 </div>
+
                 {/* About End */}
                 {/* Features Start */}
                 <div className="container-fluid bg-light">

@@ -92,146 +92,167 @@ const HomePage: React.FC = () => {
 
                 {/* Booking Start */}
                 <div className="container-fluid bg-light">
-                    <div className="container">
-                        <div className="row align-items-center">
-                            <div className="col-lg-5">
-                                <div className="bg-primary py-5 px-4 px-sm-5">
-                                    <form className="py-5">
-                                        <div className="form-group">
-                                            <input
-                                                type="text"
-                                                className="form-control border-0 p-4"
-                                                placeholder="Your Name"
-                                                required
-                                            />
-                                        </div>
-                                        <div className="form-group">
-                                            <input
-                                                type="email"
-                                                className="form-control border-0 p-4"
-                                                placeholder="Your Email"
-                                                required
-                                            />
-                                        </div>
-                                        <div className="form-group">
-                                            <div className="input-group date" id="date" data-target-input="nearest">
-                                                <input type="text" className="form-control border-0 p-4 datetimepicker-input" placeholder="Reservation Date" data-target="#date" data-toggle="datetimepicker" />
-                                                <div className="input-group-append" data-target="#date" data-toggle="datetimepicker">
-                                                    <div className="input-group-text"><i className="fa fa-calendar" /></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <div className="input-group date" id="time" data-target-input="nearest">
-                                                <input type="text" className="form-control border-0 p-4 datetimepicker-input" placeholder="Reservation Time" data-target="#time" data-toggle="datetimepicker" />
-                                                <div className="input-group-append" data-target="#time" data-toggle="datetimepicker">
-                                                    <div className="input-group-text"><i className="fa fa-clock" /></div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <select
-                                                className="custom-select border-0 px-4"
-                                                style={{ height: '47px' }}
-                                                defaultValue="" // Sử dụng defaultValue thay cho selected
-                                            >
-                                                <option value="" disabled>Select A Service</option> {/* Thay đổi để không có value là "" */}
-                                                <option value="1">Service 1</option>
-                                                <option value="2">Service 2</option>
-                                                <option value="3">Service 3</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <button className="btn btn-dark btn-block border-0 py-3" type="submit">
-                                                Đặt Ngay
-                                            </button>
-                                        </div>
-                                    </form>
+            <div className="container">
+                <div className="row align-items-center">
+                    
+                    {/* Phần Form */}
+                    <div className="col-lg-5 form-section">
+                        <div className="py-5 px-4 px-sm-5">
+                            <form className="py-5">
+                                <div className="form-group">
+                                    <input
+                                        type="text"
+                                        className="form-control border-0 p-4"
+                                        placeholder="Your Name"
+                                        required
+                                    />
                                 </div>
+                                <div className="form-group">
+                                    <input
+                                        type="email"
+                                        className="form-control border-0 p-4"
+                                        placeholder="Your Email"
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <div className="input-group date" id="date" data-target-input="nearest">
+                                        <input
+                                            type="text"
+                                            className="form-control border-0 p-4 datetimepicker-input"
+                                            placeholder="Reservation Date"
+                                            data-target="#date"
+                                            data-toggle="datetimepicker"
+                                        />
+                                        <div className="input-group-append" data-target="#date" data-toggle="datetimepicker">
+                                            <div className="input-group-text">
+                                                <i className="fa fa-calendar"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <div className="input-group date" id="time" data-target-input="nearest">
+                                        <input
+                                            type="text"
+                                            className="form-control border-0 p-4 datetimepicker-input"
+                                            placeholder="Reservation Time"
+                                            data-target="#time"
+                                            data-toggle="datetimepicker"
+                                        />
+                                        <div className="input-group-append" data-target="#time" data-toggle="datetimepicker">
+                                            <div className="input-group-text">
+                                                <i className="fa fa-clock"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <select
+                                        className="custom-select border-0 px-4"
+                                        style={{ height: "47px" }}
+                                        required
+                                    >
+                                        <option value="" disabled selected>Select A Service</option>
+                                        <option value="1">Service 1</option>
+                                        <option value="2">Service 2</option>
+                                        <option value="3">Service 3</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <button className="btn btn-dark btn-block border-0 py-3" type="submit">
+                                        Đặt Ngay
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
+                    {/* Phần Thông Tin Dịch Vụ */}
+                    <div className="col-lg-7 service-info-section py-5 py-lg-0 px-3 px-lg-5">
+                        <h4 className="text-secondary mb-3">Bạn đang đi nghỉ phải không?</h4>
+                        <h1 className="display-4 mb-4">
+                            Sách Cho <span className="text-primary">Thú Cưng</span>
+                        </h1>
+                        <p>Nhưng với sự chăm chỉ, tôi sẽ mang chúng đến cho bạn. Dù phải đối mặt với nỗi đau thực sự, tôi vẫn sẽ vượt qua và không ngần ngại khiển trách anh ta.</p>
+                        <div className="row py-2">
+                            <div className="col-sm-6">
+                                <div className="d-flex flex-column">
+                                    <div className="d-flex align-items-center mb-2">
+                                        <h1 className="flaticon-house font-weight-normal text-secondary m-0 mr-3"></h1>
+                                        <h5 className="text-truncate m-0">Gửi thú cưng</h5>
+                                    </div>
+                                    <p className="m-0 text-justify">Chúng tôi chăm sóc thú cưng của bạn với tình yêu và sự chu đáo, đảm bảo chúng luôn vui vẻ và thoải mái trong quá trình vận chuyển.</p>
+                                </div>
                             </div>
-                            <div className="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
-                                <h4 className="text-secondary mb-3">Bạn đang đi nghỉ phải không?</h4>
-                                <h1 className="display-4 mb-4">Sách Cho <span className="text-primary">Thú Cưng</span></h1>
-                                <p>Nhưng với sự chăm chỉ, tôi sẽ mang chúng đến cho bạn.
-                                    Dù phải đối mặt với nỗi đau thực sự, tôi vẫn sẽ vượt qua và không ngần ngại khiển trách anh ta.</p>
-                                <div className="row py-2">
-                                    <div className="col-sm-6">
-                                        <div className="d-flex flex-column">
-                                            <div className="d-flex align-items-center mb-2">
-                                                <h1 className="flaticon-house font-weight-normal text-secondary m-0 mr-3"></h1>
-                                                <h5 className="text-truncate m-0">Gửi thú cưng</h5>
-                                            </div>
-                                            <p className="m-0 text-justify">Chúng tôi chăm sóc thú cưng của bạn với tình yêu và sự chu đáo, đảm bảo chúng luôn vui vẻ và thoải mái trong quá trình vận chuyển. Dịch vụ của chúng tôi an toàn, tiện lợi và phù hợp với mọi loại thú cưng.</p>
-                                        </div>
+                            <div className="col-sm-6">
+                                <div className="d-flex flex-column">
+                                    <div className="d-flex align-items-center mb-2">
+                                        <h1 className="flaticon-food font-weight-normal text-secondary m-0 mr-3"></h1>
+                                        <h5 className="text-truncate m-0">Cho thú cưng ăn</h5>
                                     </div>
-                                    <div className="col-sm-6">
-                                        <div className="d-flex flex-column">
-                                            <div className="d-flex align-items-center mb-2">
-                                                <h1 className="flaticon-food font-weight-normal text-secondary m-0 mr-3"></h1>
-                                                <h5 className="text-truncate m-0">Cho thú cưng ăn</h5>
-                                            </div>
-                                            <p className="m-0 text-justify">Chúng tôi đảm bảo thú cưng của bạn được ăn uống đầy đủ với chế độ dinh dưỡng khoa học và cân đối. Thú cưng của bạn sẽ luôn khỏe mạnh và tràn đầy năng lượng với sự chăm sóc chu đáo từ chúng tôi.</p>
-                                        </div>
+                                    <p className="m-0 text-justify">Chúng tôi đảm bảo thú cưng của bạn được ăn uống đầy đủ với chế độ dinh dưỡng khoa học và cân đối.</p>
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="d-flex flex-column">
+                                    <div className="d-flex align-items-center mb-2">
+                                        <h1 className="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></h1>
+                                        <h5 className="text-truncate m-0">Chăm sóc thú cưng</h5>
                                     </div>
-                                    <div className="col-sm-6">
-                                        <div className="d-flex flex-column">
-                                            <div className="d-flex align-items-center mb-2">
-                                                <h1 className="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></h1>
-                                                <h5 className="text-truncate m-0">Chăm sóc thú cưng</h5>
-                                            </div>
-                                            <p className="m-0 text-justify">Chúng tôi chăm sóc thú cưng của bạn mỗi ngày, đảm bảo chúng luôn vui vẻ, thoải mái và khỏe mạnh. Dịch vụ của chúng tôi kết hợp dinh dưỡng hợp lý và không gian vui chơi an toàn cho thú cưng của bạn.</p>
-                                        </div>
+                                    <p className="m-0 text-justify">Chúng tôi chăm sóc thú cưng của bạn mỗi ngày, đảm bảo chúng luôn vui vẻ, thoải mái và khỏe mạnh.</p>
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="d-flex flex-column">
+                                    <div className="d-flex align-items-center mb-2">
+                                        <h1 className="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></h1>
+                                        <h5 className="text-truncate m-0">Huấn luyện thú cưng</h5>
                                     </div>
-                                    <div className="col-sm-6">
-                                        <div className="d-flex flex-column">
-                                            <div className="d-flex align-items-center mb-2">
-                                                <h1 className="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></h1>
-                                                <h5 className="text-truncate m-0">Huấn luyện thú cưng</h5>
-                                            </div>
-                                            <p className="m-0 text-justify">Chúng tôi cung cấp dịch vụ huấn luyện thú cưng chuyên nghiệp, giúp chúng học được những kỹ năng cần thiết. Thú cưng của bạn sẽ vâng lời và tương tác tốt với môi trường xung quanh.</p>
-                                        </div>
-                                    </div>
+                                    <p className="m-0 text-justify">Chúng tôi cung cấp dịch vụ huấn luyện thú cưng chuyên nghiệp, giúp chúng học được những kỹ năng cần thiết.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
+            </div>
+        </div>
                 {/* Booking End */}
                 <>
                     {/* About Start */}
                     <div className="container py-5">
                         <div className="row py-5">
                             <div className="col-lg-7 pb-5 pb-lg-0 px-3 px-lg-5">
-                                <h4 className="text-secondary mb-3">Giới thiệu về chúng tôi</h4>
+                                <h4 className="text-secondary mb-3">Về Chúng Tôi</h4>
                                 <h1 className="display-4 mb-4">
-                                    <span className="text-primary">Nội Trú</span> &amp;{" "}
-                                    <span className="text-secondary">Nhà Trẻ</span>
+                                    <span className="text-primary">Lưu Trú</span> &amp;{" "}
+                                    <span className="text-secondary">Chăm Sóc Ban Ngày</span>
                                 </h1>
-                                <h5 className="m-0 text-justify">
-                                    Chúng tôi cung cấp dịch vụ nội trú và nhà trẻ dành cho thú cưng, nơi chúng được chăm sóc và vui chơi trong môi trường an toàn và thân thiện. Đội ngũ của chúng tôi luôn sẵn sàng để đảm bảo mọi thú cưng đều được yêu thương và chăm sóc chu đáo, giúp chúng luôn thoải mái và hạnh phúc.
+                                <h5 className="text-muted mb-3">
+                                    Luôn đồng hành và tận tâm. Sẵn sàng đáp ứng mọi nhu cầu. Dịch vụ tốt nhất cho thú cưng của bạn.
                                 </h5>
-                                <p className="m-0 text-justify">
-                                    Chúng tôi cung cấp dịch vụ chăm sóc thú cưng toàn diện, từ việc chăm sóc hàng ngày cho đến các chương trình huấn luyện chuyên nghiệp. Đội ngũ của chúng tôi cam kết mang đến sự chăm sóc tận tình, đảm bảo thú cưng của bạn luôn khỏe mạnh và hạnh phúc.
+                                <p className="mb-4">
+                                    Chúng tôi cam kết mang đến cho thú cưng của bạn sự thoải mái và vui vẻ nhất. Dịch vụ của chúng tôi
+                                    luôn an toàn, chu đáo và chuyên nghiệp. Chúng tôi hiểu rằng thú cưng là một thành viên trong gia đình của bạn.
                                 </p>
                                 <ul className="list-inline">
                                     <li>
                                         <h5>
                                             <i className="fa fa-check-double text-secondary mr-3" />
-                                            Tốt nhất trong ngành
+                                            Tốt Nhất Trong Ngành
                                         </h5>
                                     </li>
                                     <li>
                                         <h5>
                                             <i className="fa fa-check-double text-secondary mr-3" />
-                                            Dịch vụ khẩn cấp
+                                            Dịch Vụ Khẩn Cấp
                                         </h5>
                                     </li>
                                     <li>
                                         <h5>
                                             <i className="fa fa-check-double text-secondary mr-3" />
-                                            Hỗ trợ khách hàng 24/7
+                                            Hỗ Trợ Khách Hàng 24/7
                                         </h5>
                                     </li>
                                 </ul>
@@ -254,6 +275,7 @@ const HomePage: React.FC = () => {
                             </div>
                         </div>
                     </div>
+
                     {/* About End */}
                     {/* Services Start */}
                     <div className="container-fluid bg-light pt-5">

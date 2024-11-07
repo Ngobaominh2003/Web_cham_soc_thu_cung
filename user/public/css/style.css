@@ -66,7 +66,7 @@ section {
 body {
   margin: 0;
   font-family: "Nunito Sans", sans-serif;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.5;
   color: #777777;
@@ -651,8 +651,8 @@ pre code {
 .container-lg,
 .container-xl {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0px;
+  padding-left: 0px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -691,7 +691,7 @@ pre code {
   .container-md,
   .container-lg,
   .container-xl {
-    max-width: 1140px;
+    max-width: 1440px;
   }
 }
 
@@ -3971,7 +3971,7 @@ input[type="button"].btn-block {
 
 .input-group-lg>.custom-select,
 .input-group-sm>.custom-select {
-  padding-right: 1.75rem;
+  padding-right: 2rem;
 }
 
 .input-group>.input-group-prepend>.btn,
@@ -11098,3 +11098,137 @@ h6 {
   font-size: 14px;
   padding: 10px 15px;
 }
+
+
+/* Main Container Styling */
+
+
+.bg-primary {
+  background-color: #ff652f; /* Orange background for the form container */
+  padding: 40px 20px;
+  border-radius: 5px;
+}
+/*Service*/
+
+/* Booking Start */
+/* Phần Form */
+.form-section {
+    background-color: #ff652f;
+    padding: 40px 20px;
+    border-radius: 5px;
+}
+
+.form-section .form-group input,
+.form-section .form-group select {
+    border: none;
+    border-radius: 5px;
+   
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+}
+
+.form-section .form-control::placeholder {
+    color: #999;
+}
+
+.form-section .custom-select {
+    height: auto;
+    border-radius: 5px;
+    padding: 12px 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    appearance: none;
+}
+
+.form-section .btn-dark {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 12px;
+}
+
+.form-section .btn-dark:hover {
+    background-color: #444;
+}
+
+.form-section .input-group {
+    position: relative;
+}
+
+.form-section .input-group .form-control {
+    padding-right: 45px;
+}
+
+.form-section .input-group .input-group-append {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    pointer-events: none;
+}
+
+.form-section .input-group .fa-calendar,
+.form-section .input-group .fa-clock {
+    color: #333;
+    font-size: 1.2em;
+}
+
+/* Phần Thông Tin Dịch Vụ */
+.service-info-section .text-secondary {
+    color: #68b684;
+}
+
+.service-info-section .text-primary {
+    color: #ff652f;
+}
+
+.service-info-section h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.service-info-section h1.display-4 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.service-info-section .d-flex .h5 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.service-info-section .d-flex .flaticon-house,
+.service-info-section .d-flex .flaticon-food,
+.service-info-section .d-flex .flaticon-grooming,
+.service-info-section .d-flex .flaticon-toy {
+    font-size: 2rem;
+    color: #68b684;
+}
+
+.service-info-section .text-justify {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .service-info-section h1.display-4 {
+        font-size: 2rem;
+    }
+
+    .form-section {
+        padding: 20px;
+    }
+}
+
+/* Booking Start */
