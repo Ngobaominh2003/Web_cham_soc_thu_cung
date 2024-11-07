@@ -1,0 +1,445 @@
+.custom-page .sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+}
+
+.custom-page .sidebar-user {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.custom-page .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.custom-page .username {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.custom-page .edit-profile {
+    font-size: 12px;
+    color: #3498db;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.custom-page .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-page .menu-item {
+    padding: 10px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+}
+
+.custom-page .menu-item:hover,
+.custom-page .menu-item.active {
+    background-color: #f5f5f5;
+}
+
+.custom-page .btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.custom-page .btn:hover {
+    background-color: #218838;
+}
+
+.custom-page .save-button {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-page .save-button:hover {
+    background-color: #e64a19;
+}
+
+
+
+
+
+
+
+
+/* CSS dành riêng cho trang tài khoản */
+.tai-khoan-page {
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+.tai-khoan-page .profile-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.tai-khoan-page .profile-content {
+    flex: 1;
+    padding: 30px;
+}
+
+.tai-khoan-page h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.tai-khoan-page .profile-main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tai-khoan-page .profile-right {
+    flex: 1;
+}
+
+.tai-khoan-page .profile-image-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tai-khoan-page .profile-image {
+    margin-right: 20px;
+}
+
+.tai-khoan-page .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.tai-khoan-page .choose-image-input {
+    margin-top: 10px;
+}
+
+.tai-khoan-page .image-note {
+    font-size: 12px;
+    color: #888;
+}
+
+.tai-khoan-page .form-group {
+    margin-bottom: 15px;
+}
+
+.tai-khoan-page .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.tai-khoan-page .form-group input[type="text"],
+.tai-khoan-page .form-group input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.tai-khoan-page .gender-options {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.tai-khoan-page .save-button {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.tai-khoan-page .save-button:hover {
+    background-color: #e64a19;
+}
+
+
+
+
+
+
+
+/* Dành riêng cho trang BaiViet1 */
+.bai-viet-page {
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+/* Phần nội dung chính */
+.bai-viet-page .details {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    flex: 3; /* Đảm bảo phần này rộng gấp đôi so với .details1 */
+}
+
+/* Đầu tiêu đề */
+.bai-viet-page .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.bai-viet-page .cardHeader h2 {
+    font-size: 24px;
+    color: #4a3aff;
+}
+
+/* Form thêm và cập nhật bài viết */
+.bai-viet-page .add-user-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.bai-viet-page .form-group {
+    margin-bottom: 15px;
+}
+
+.bai-viet-page .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.bai-viet-page .form-group input[type="text"],
+.bai-viet-page .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+}
+
+.bai-viet-page .form-group input[type="file"] {
+    margin-top: 10px;
+}
+
+.bai-viet-page textarea {
+    height: 100px;
+    resize: none;
+}
+
+.bai-viet-page button.btn {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.bai-viet-page button.btn:hover {
+    background-color: #218838;
+}
+
+/* Bảng hiển thị bài viết */
+.bai-viet-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.bai-viet-page table th,
+.bai-viet-page table td {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: left;
+}
+
+.bai-viet-page table th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Cột nội dung trong bảng - Chiều rộng lớn nhất, có thanh cuộn nếu quá dài */
+.bai-viet-page table td:nth-child(2) {
+    max-width: 500px; /* Đặt chiều rộng tối đa cho cột nội dung */
+    max-height: 150px;
+    overflow-y: auto; /* Thanh cuộn dọc khi nội dung quá dài */
+    word-wrap: break-word;
+    display: block; /* Đảm bảo hiển thị đúng khối */
+}
+
+/* Styling cho hình ảnh */
+.bai-viet-page table td img.avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Nút xóa */
+.bai-viet-page .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.bai-viet-page .delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Thông báo */
+.bai-viet-page .alert {
+    padding: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    margin-bottom: 15px;
+}
+
+/* Responsive cho bảng */
+@media (max-width: 768px) {
+    .bai-viet-page table td:nth-child(2) {
+        width: 100%;
+        max-height: 100px;
+        overflow-y: auto;
+        display: block;
+        padding-right: 10px;
+    }
+}
+
+.bai-viet-page .content-row {
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa các khối */
+}
+
+.bai-viet-page .details1 {
+    flex: 1; /* Phần này sẽ nhỏ hơn, chỉ chiếm một nửa không gian của .details */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bai-viet-page .recentOrders {
+    margin-top: 20px;
+}
+
+.bai-viet-page .cardHeader h2 {
+    font-size: 24px;
+    color: #4a3aff;
+}
+
+/* Form styling */
+.bai-viet-page .form-group {
+    margin-bottom: 15px;
+}
+
+.bai-viet-page .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.bai-viet-page .form-group input[type="text"],
+.bai-viet-page .form-group textarea,
+.bai-viet-page .form-group input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Styling cho bảng */
+.bai-viet-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.bai-viet-page table th,
+.bai-viet-page table td {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: left;
+}
+
+.bai-viet-page table th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+.bai-viet-page .avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.bai-viet-page .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.bai-viet-page .delete-btn:hover {
+    background-color: #c82333;
+}
+
+.bai-viet-page button.btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.bai-viet-page button.btn:hover {
+    background-color: #218838;
+}
+
+
+
+
