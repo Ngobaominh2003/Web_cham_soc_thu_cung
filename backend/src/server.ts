@@ -4,6 +4,7 @@ import userRoutes from './routes/userRoutes';
 import dichvuRoutes from './routes/dichvuRoutes';  
 import goidichvuRoutes from './routes/goidichvuRoutes'; 
 import baivietRoutes from './routes/baivietRoutes'; 
+import datlichtRoutes from './routes/datlichRouter'; 
 import path from 'path';
 
 const app = express();
@@ -21,8 +22,9 @@ app.use('/img', express.static(path.join('D:/petcare0/backend/src/img')));
  // Sử dụng các route từ file userRoutes
 app.use('/api', userRoutes); 
 app.use('/api', dichvuRoutes);
-app.use('/api', goidichvuRoutes)
-app.use('/api', baivietRoutes); // Đây là nơi bạn sử dụng dichvuRoutes, đảm bảo rằng tuyến đường được sử dụng đúng cách
+app.use('/api', goidichvuRoutes);
+app.use('/api', baivietRoutes);
+app.use('/api', datlichtRoutes); // Đây là nơi bạn sử dụng dichvuRoutes, đảm bảo rằng tuyến đường được sử dụng đúng cách
 
 // Route kiểm tra server hoạt động
 
