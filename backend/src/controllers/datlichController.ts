@@ -24,12 +24,12 @@ export const getDatLichByNguoiDungId = async (req: Request, res: Response) => {
     const datLichs = await DatLichModel.getDatLichByNguoiDungId(nguoi_dung_id);
     res.json(datLichs);
   } catch (error) {
-  if (error instanceof Error) {
-    res.status(500).json({ message: error.message });
-  } else {
-    res.status(500).json({ message: String(error) });
+    if (error instanceof Error) {
+      res.status(500).json({ message: error.message });
+    } else {
+      res.status(500).json({ message: String(error) });
+    }
   }
-}
 };
 
 // Lấy lịch đặt theo dat_lich_id
@@ -43,27 +43,59 @@ export const getDatLichById = async (req: Request, res: Response) => {
       res.status(404).json({ message: 'Không tìm thấy lịch đặt' });
     }
   } catch (error) {
-  if (error instanceof Error) {
-    res.status(500).json({ message: error.message });
-  } else {
-    res.status(500).json({ message: String(error) });
+    if (error instanceof Error) {
+      res.status(500).json({ message: error.message });
+    } else {
+      res.status(500).json({ message: String(error) });
+    }
   }
-}
+};
+// Danh sách các khung giờ có sẵn trong ngày, ví dụ: mỗi 30 phút từ 8:00 đến 18:00
+const workingHours = [
+  '08:00:00', '08:30:00', '09:00:00', '09:30:00', '10:00:00', '10:30:00',
+  '11:00:00', '11:30:00', '13:30:00',
+  '14:00:00', '14:30:00', '15:00:00', '15:30:00', '16:00:00', '16:30:00',
+  '17:00:00', '17:30:00', '18:00:00'
+];
+
+// Hàm lấy giờ còn trống trong ngày
+export const getAvailableTimes = async (req: Request, res: Response) => {
+  const { ngay_dat } = req.query;
+
+  if (!ngay_dat) {
+    return res.status(400).json({ message: 'Vui lòng cung cấp ngày đặt' });
+  }
+
+  try {
+    // Lấy các giờ đã được đặt trong ngày từ cơ sở dữ liệu
+    const bookedTimes = await DatLichModel.getBookedTimesForDate(ngay_dat as string);
+
+    // Tìm các giờ còn trống
+    const availableTimes = workingHours.filter(time => !bookedTimes.includes(time));
+
+    res.json({ availableTimes });
+  } catch (error) {
+    res.status(500).json({ message: error instanceof Error ? error.message : String(error) });
+  }
 };
 
 // Thêm mới lịch đặt
 export const createDatLich = async (req: Request, res: Response) => {
-  const datLichData = req.body;
+  const { ngay_dat, gio_dat } = req.body;
+
   try {
-    const result = await DatLichModel.createDatLich(datLichData);
-    res.status(201).json({ dat_lich_id: result.insertId });
+    // Kiểm tra số lượng lịch đặt trùng ngày và giờ
+    const existingCount = await DatLichModel.countDatLichByDateAndTime(ngay_dat, gio_dat);
+    if (existingCount >= 8) {
+      return res.status(400).json({ message: 'Số lượng lịch đặt trùng ngày và giờ đã đạt tối đa' });
+    }
+
+    // Nếu chưa đạt giới hạn, tiến hành tạo lịch đặt mới
+    const result = await DatLichModel.createDatLich(req.body);
+    res.status(201).json({ message: 'Tạo lịch đặt thành công', dat_lich_id: result.insertId });
   } catch (error) {
-  if (error instanceof Error) {
-    res.status(500).json({ message: error.message });
-  } else {
-    res.status(500).json({ message: String(error) });
+    res.status(500).json({ message: error instanceof Error ? error.message : String(error) });
   }
-}
 };
 
 // Hàm cập nhật lịch đặt
@@ -77,6 +109,7 @@ export const updateDatLich = async (req: Request, res: Response) => {
 
   // Lấy dữ liệu cần cập nhật từ body
   const datLichData = req.body;
+
 
   try {
     // Gọi model để thực hiện cập nhật

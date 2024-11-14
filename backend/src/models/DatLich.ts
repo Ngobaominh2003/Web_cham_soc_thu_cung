@@ -56,36 +56,44 @@ export const getDatLichById = async (dat_lich_id: number): Promise<DatLich | nul
     throw error;
   }
 };
+// Hàm đếm số lượng lịch đặt trùng ngày và giờ
+export const countDatLichByDateAndTime = async (ngay_dat: string, gio_dat: string): Promise<number> => {
+  try {
+    const [rows] = await connection.query<RowDataPacket[]>(
+      'SELECT COUNT(*) as count FROM dat_lich WHERE ngay_dat = ? AND gio_dat = ?',
+      [ngay_dat, gio_dat]
+    );
+    return rows[0].count;
+  } catch (error) {
+    throw error;
+  }
+};
+// Hàm lấy giờ đã đặt trong ngày
+export const getBookedTimesForDate = async (ngay_dat: string): Promise<string[]> => {
+  try {
+    const [rows] = await connection.query<RowDataPacket[]>(
+      'SELECT gio_dat FROM dat_lich WHERE ngay_dat = ?',
+      [ngay_dat]
+    );
+
+    // Trả về danh sách các giờ đã đặt (chỉ lấy `gio_dat`)
+    return rows.map(row => row.gio_dat);
+  } catch (error) {
+    throw error;
+  }
+};
 
 // Thêm mới một lịch đặt
 export const createDatLich = async (datLichData: DatLich): Promise<ResultSetHeader> => {
   try {
-    const {
-      nguoi_dung_id,
-      dich_vu_id,
-      thu_cung_id = null,
-      ngay_dat,
-      gio_dat,
-      trang_thai = 'cho_duyet',
-      ten_kh,
-      email_kh,
-    } = datLichData;
+    const { nguoi_dung_id, dich_vu_id, thu_cung_id, ngay_dat, gio_dat, trang_thai, ten_kh, email_kh } = datLichData;
 
     const [result] = await connection.query<ResultSetHeader>(
-      `INSERT INTO dat_lich 
-      (nguoi_dung_id, dich_vu_id, thu_cung_id, ngay_dat, gio_dat, trang_thai, ten_kh, email_kh)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-      [
-        nguoi_dung_id,
-        dich_vu_id,
-        thu_cung_id,
-        ngay_dat,
-        gio_dat,
-        trang_thai,
-        ten_kh,
-        email_kh,
-      ]
+      `INSERT INTO dat_lich (nguoi_dung_id, dich_vu_id, thu_cung_id, ngay_dat, gio_dat, trang_thai, ten_kh, email_kh)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [nguoi_dung_id, dich_vu_id, thu_cung_id, ngay_dat, gio_dat, trang_thai || 'cho_duyet', ten_kh, email_kh]
     );
+
     return result;
   } catch (error) {
     throw error;
