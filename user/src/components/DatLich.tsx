@@ -81,7 +81,7 @@ const DatLich: React.FC = () => {
                 ngay_dat: formData.ngayDat,
                 gio_dat: formData.gioDat,
                 dich_vu_id: formData.dichVu, 
-                trang_thai: 'cho_duyet'
+                trang_thai: 'chờ xác nhận'
             });
             alert(response.data.message || 'Tạo lịch đặt thành công!');
         } catch (error) {

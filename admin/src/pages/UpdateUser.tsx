@@ -5,8 +5,8 @@ interface User {
   ten_dang_nhap: string;
   email: string;
   mat_khau: string;
-  gioi_tinh?: 'nam' | 'nu' | 'khac';
-  vai_tro?: 'quan_tri' | 'nhan_vien' | 'nguoi_dung' | 'cong_tac_vien';
+  gioi_tinh?: 'nam' | 'nữ' | 'khác';
+    vai_tro?: 'quản trị' | 'nhân viên' | 'người dùng' | 'cộng tác viên';
   sdt?: string;
   avata?: string | File;
 }
@@ -164,10 +164,10 @@ const UpdateUser: React.FC<UpdateUserProps> = ({ user }) => {
               onChange={handleChange}
             >
               <option value="">Chọn vai trò</option>
-              <option value="quan_tri">Quản trị</option>
-              <option value="nhan_vien">Nhân viên</option>
-              <option value="nguoi_dung">Người dùng</option>
-              <option value="cong_tac_vien">Cộng tác viên</option>
+              <option value="quản trị">Quản trị</option>
+              <option value="nhân viên">Nhân viên</option>
+              <option value="người dùng">Người dùng</option>
+              <option value="cộng tác viên">Cộng tác viên</option>
             </select>
           </div>
 

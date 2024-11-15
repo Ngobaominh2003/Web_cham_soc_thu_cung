@@ -9,7 +9,7 @@ export interface DatLich {
   thu_cung_id?: number | null;
   ngay_dat: string; // Định dạng 'YYYY-MM-DD'
   gio_dat: string;  // Định dạng 'HH:MM:SS'
-  trang_thai?: 'cho_duyet' | 'da_xac_nhan' | 'da_huy';
+  trang_thai?: 'chờ xác nhận' | 'đã xác nhận' | 'đã hủy';
   ngay_tao?: Date;
   ten_kh: string;
   email_kh: string;
@@ -91,7 +91,7 @@ export const createDatLich = async (datLichData: DatLich): Promise<ResultSetHead
     const [result] = await connection.query<ResultSetHeader>(
       `INSERT INTO dat_lich (nguoi_dung_id, dich_vu_id, thu_cung_id, ngay_dat, gio_dat, trang_thai, ten_kh, email_kh)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-      [nguoi_dung_id, dich_vu_id, thu_cung_id, ngay_dat, gio_dat, trang_thai || 'cho_duyet', ten_kh, email_kh]
+       [nguoi_dung_id, dich_vu_id, thu_cung_id, ngay_dat, gio_dat, trang_thai || 'chờ xác nhận', ten_kh, email_kh]
     );
 
     return result;

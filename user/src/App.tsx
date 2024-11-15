@@ -10,7 +10,7 @@ import Blog2 from './pages/Blog2';
 import Contact from './pages/Contact';
 import TaiKhoan from './pages/taikhoan/TaiKhoan';
 import BaiViet1 from './pages/taikhoan/BaiViet1';
-
+import DSLich from './pages/taikhoan/DSLich';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -31,6 +31,7 @@ const App: React.FC = () => {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/TaiKhoan" element={<TaiKhoan />} />
           <Route path="/BaiViet1" element={<BaiViet1 />} />
+          <Route path="/DSLich" element={<DSLich />} />
 
           <Route path="/Login" element={<Login />} />
           <Route path="/Register" element={<Register />} />

@@ -11,7 +11,7 @@ interface BaiVietType {
   noi_dung: string;
   ngay_tao: string;
   hinh_anh: string;
-  trang_thai: 'da_duyet' | 'cho_duyet' | 'huy';
+  trang_thai: 'đã duyệt' | 'chờ duyệt' | 'hủy';
 }
 
 // Hàm để cắt ngắn nội dung
@@ -35,7 +35,18 @@ const BaiViet: React.FC = () => {
 
     fetchBaiViet();
   }, []);
-
+  const getStatusStyle = (trangThai: string) => {
+    switch (trangThai) {
+      case 'chờ duyệt':
+        return { backgroundColor: '#ffcc00', color: '#fff' };
+      case 'đã duyệt':
+        return { backgroundColor: '#4CAF50', color: '#fff' };
+      case 'hủy':
+        return { backgroundColor: '#f44336', color: '#fff' };
+      default:
+        return {};
+    }
+  };
   // Hàm xóa bài viết
   const handleDelete = async (baiVietId: number) => {
     // Hiển thị hộp thoại xác nhận xóa
@@ -93,15 +104,23 @@ const BaiViet: React.FC = () => {
                     <td>{truncateText(baiViet.noi_dung, 100)}</td>
                     <td>{new Date(baiViet.ngay_tao).toLocaleDateString()}</td>
                     <td>
-                      
+
                       <img
-                                                src={`http://localhost:5000/img/${baiViet.hinh_anh}`}
-                                                
-                                                className="avatar"
-                                                
-                                            />
+                        src={`http://localhost:5000/img/${baiViet.hinh_anh}`}
+
+                        className="avatar"
+
+                      />
                     </td>
-                    <td>{baiViet.trang_thai}</td>
+
+                    <td>
+                      <span
+                        className="status"
+                        style={getStatusStyle(baiViet.trang_thai)}
+                      >
+                        {baiViet.trang_thai}
+                      </span>
+                    </td>
                     <td>
                       <button
                         className="delete-btn"

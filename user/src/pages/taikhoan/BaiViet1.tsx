@@ -12,7 +12,7 @@ interface BaiVietType {
   noi_dung: string;
   ngay_tao: string;
   hinh_anh: string;
-  trang_thai: 'cho_duyet' | 'da_duyet' | 'huy';
+  trang_thai: 'đã duyệt' | 'chờ duyệt' | 'hủy';
 }
 
 const BaiViet1: React.FC = () => {

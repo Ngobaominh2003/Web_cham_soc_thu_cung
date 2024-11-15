@@ -441,5 +441,54 @@
 }
 
 
+/* Chỉ áp dụng CSS cho thành phần DSLich */
+.dat-lich-page .content-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
 
+.dat-lich-page .table-container {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
 
+.dat-lich-page .table-container h1 {
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dat-lich-page .TaiKhoanMenu {
+    width: 250px;
+}
+
+.dat-lich-page .lich-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dat-lich-page .lich-table thead th {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 12px;
+}
+
+.dat-lich-page .lich-table tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dat-lich-page .lich-table tbody td button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}

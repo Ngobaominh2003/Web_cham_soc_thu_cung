@@ -6,7 +6,7 @@ interface BaiVietType {
   tieu_de: string;
   noi_dung: string;
   hinh_anh: string;
-  trang_thai: 'cho_duyet' | 'da_duyet' | 'huy';
+  trang_thai: 'đã duyệt' | 'chờ duyệt' | 'hủy';
 }
 
 interface BaiViet1UpdateProps {

@@ -44,7 +44,7 @@ const Login: React.FC = () => {
 
 
       // Điều hướng dựa trên vai trò của người dùng
-      if (vai_tro === 'quan_tri' || vai_tro === 'nhan_vien') {
+      if (vai_tro === 'quản trị' || vai_tro === 'nhân viên') {
         navigate('/Admin'); // Điều hướng đến trang quản trị
       } else {
         navigate('/HomePage'); // Điều hướng đến trang chính

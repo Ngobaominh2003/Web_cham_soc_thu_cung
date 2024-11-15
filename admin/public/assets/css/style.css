@@ -634,3 +634,24 @@ table img {
     left: initial;
   }
 }
+
+/*màu cho trạng thái*/
+.status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.status.cho_duyet {
+  background-color: #ffcc00; /* Màu vàng cho trạng thái chờ duyệt */
+}
+
+.status.da_xac_nhan {
+  background-color: #4CAF50; /* Màu xanh lá cho trạng thái đã xác nhận */
+}
+
+.status.da_huy {
+  background-color: #f44336; /* Màu đỏ cho trạng thái đã hủy */
+}

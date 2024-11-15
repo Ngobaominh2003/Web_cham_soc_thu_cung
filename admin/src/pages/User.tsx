@@ -11,8 +11,8 @@ interface User {
     mat_khau: string;
     email: string;
     sdt?: string;
-    gioi_tinh?: 'nam' | 'nu' | 'khac';
-    vai_tro?: 'quan_tri' | 'nhan_vien' | 'nguoi_dung' | 'cong_tac_vien';
+    gioi_tinh?: 'nam' | 'nữ' | 'khác';
+    vai_tro?: 'quản trị' | 'nhân viên' | 'người dùng' | 'cộng tác viên';
     ngay_tao?: string;
     avata?: string;
 }

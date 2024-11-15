@@ -76,24 +76,24 @@ const Contact: React.FC = () => {
                         </div>
                         <div className="col-12 mb-n2 p-0">
                             <iframe
-                                style={{ width: "100%", height: 500 }}
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                                frameBorder={0}
+                                style={{ width: "100%", height: 500, border: 0 }}
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59729.55352929679!2d106.02228897932214!3d20.665628419016894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135c12ae1ec71a3%3A0x4d32999e6a9bb398!2zVHAuIEjGsG5nIFnDqm4sIEjGsG5nIFnDqm4sIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1731547267075!5m2!1svi!2s"
+                                loading="lazy"
                                 allowFullScreen
-                                aria-hidden="false"
-                                tabIndex={0}
-                            />
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
                         </div>
                         <div className="col-12 mb-n2 p-0">
                             <iframe
-                                style={{ width: "100%", height: 500 }}
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                                frameBorder={0}
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59587.95149175388!2d105.76447294688771!3d21.0228019733831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9bd9861ca1%3A0xe7887f7b72ca17a9!2zSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1731547601970!5m2!1svi!2s"
+                                style={{ width: "100%", height: 450, border: 0 }}
+                                loading="lazy"
                                 allowFullScreen
-                                aria-hidden="false"
-                                tabIndex={0}
-                            />
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
                         </div>
+
+
                     </div>
                 </div>
                 {/* Contact End */}

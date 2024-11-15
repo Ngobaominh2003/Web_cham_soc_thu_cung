@@ -8,7 +8,7 @@ export interface BaiViet extends RowDataPacket {
     noi_dung: string | null;
     ngay_tao: Date;
     hinh_anh: string | null;
-    trang_thai: 'da_duyet' | 'cho_duyet' | 'huy';
+    trang_thai: 'đã duyệt' | 'chờ duyệt' | 'hủy';
   }
 
 // Lấy tất cả bài viết
@@ -35,7 +35,7 @@ export const createBaiViet = async (
   noi_dung: string | null,
   hinh_anh: string | null
 ): Promise<void> => {
-  const trang_thai = 'cho_duyet'; // Mặc định trạng thái là chờ duyệt
+  const trang_thai = 'chờ duyệt'; 
   const ngay_tao = new Date();
 
   await connection.execute(
@@ -50,7 +50,7 @@ export const updateBaiViet = async (
   tieu_de: string,
   noi_dung: string | null,
   hinh_anh: string | null,
-  trang_thai?: 'da_duyet' | 'cho_duyet' | 'huy' // Trang thái không bắt buộc
+  trang_thai?: 'đã duyệt' | 'chờ duyệt' | 'hủy' 
 ): Promise<void> => {
   let query = 'UPDATE bai_viet SET tieu_de = ?';
   const params: any[] = [tieu_de];

@@ -7,7 +7,7 @@ interface BaiVietUpdateProps {
     tieu_de: string;
     noi_dung: string;
     hinh_anh: string;
-    trang_thai: 'cho_duyet' | 'da_duyet' | 'huy';
+    trang_thai: 'đã duyệt' | 'chờ duyệt' | 'hủy';
   } | null;
 }
 
@@ -16,7 +16,7 @@ const BaiVietUpdate: React.FC<BaiVietUpdateProps> = ({ baiVietChon }) => {
     tieu_de: '',
     noi_dung: '',
     hinh_anh: null as File | null,
-    trang_thai: 'cho_duyet' as 'cho_duyet' | 'da_duyet' | 'huy',
+    trang_thai: 'chờ duyệt' as 'đã duyệt' | 'chờ duyệt' | 'hủy',
   });
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const BaiVietUpdate: React.FC<BaiVietUpdateProps> = ({ baiVietChon }) => {
   };
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFormData({ ...formData, trang_thai: e.target.value as 'cho_duyet' | 'da_duyet' | 'huy' });
+    setFormData({ ...formData, trang_thai: e.target.value as 'đã duyệt' | 'chờ duyệt' | 'hủy' });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -132,9 +132,9 @@ const BaiVietUpdate: React.FC<BaiVietUpdateProps> = ({ baiVietChon }) => {
               value={formData.trang_thai}
               onChange={handleSelectChange}
             >
-              <option value="cho_duyet">Chờ duyệt</option>
-              <option value="da_duyet">Đã duyệt</option>
-              <option value="huy">Hủy</option>
+              <option value="chờ duyệt">Chờ duyệt</option>
+              <option value="đã duyệt">Đã duyệt</option>
+              <option value="hủy">Hủy</option>
             </select>
           </div>
 

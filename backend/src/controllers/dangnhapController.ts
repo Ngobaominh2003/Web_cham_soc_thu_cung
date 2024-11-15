@@ -35,7 +35,7 @@ export const loginUser = async (req: Request, res: Response) => {
 
         // Xác định URL chuyển hướng dựa trên vai trò người dùng
         let redirectUrl = '/Mew';
-        if (user.vai_tro === 'quan_tri' || user.vai_tro === 'nhan_vien') {
+        if (user.vai_tro === 'quản trị' || user.vai_tro === 'nhân viên') {
             redirectUrl = '/Admin';
         }
 
