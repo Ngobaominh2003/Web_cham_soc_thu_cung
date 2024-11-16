@@ -84,14 +84,31 @@ export const getBookedTimesForDate = async (ngay_dat: string): Promise<string[]>
 };
 
 // Thêm mới một lịch đặt
-export const createDatLich = async (datLichData: DatLich): Promise<ResultSetHeader> => {
+export const createDatLich = async (datLichData: Partial<DatLich>): Promise<ResultSetHeader> => {
   try {
-    const { nguoi_dung_id, dich_vu_id, thu_cung_id, ngay_dat, gio_dat, trang_thai, ten_kh, email_kh } = datLichData;
+    const {
+      nguoi_dung_id,
+      dich_vu_id,
+      ngay_dat,
+      gio_dat,
+      trang_thai,
+      ten_kh,
+      email_kh,
+    } = datLichData;
 
     const [result] = await connection.query<ResultSetHeader>(
-      `INSERT INTO dat_lich (nguoi_dung_id, dich_vu_id, thu_cung_id, ngay_dat, gio_dat, trang_thai, ten_kh, email_kh)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-       [nguoi_dung_id, dich_vu_id, thu_cung_id, ngay_dat, gio_dat, trang_thai || 'chờ xác nhận', ten_kh, email_kh]
+      `INSERT INTO dat_lich (nguoi_dung_id, dich_vu_id, ngay_dat, gio_dat, trang_thai, ten_kh, email_kh)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+
+      [
+        nguoi_dung_id ? nguoi_dung_id : null, // Chuyển '' thành null nếu không có giá trị
+        dich_vu_id,
+        ngay_dat,
+        gio_dat,
+        trang_thai || 'chờ xác nhận', // Giá trị mặc định cho trạng thái
+        ten_kh,
+        email_kh,
+      ]
     );
 
     return result;
@@ -99,6 +116,8 @@ export const createDatLich = async (datLichData: DatLich): Promise<ResultSetHead
     throw error;
   }
 };
+
+
 
 // Hàm cập nhật thông tin lịch đặt
 export const updateDatLich = async (dat_lich_id: number, datLichData: Partial<DatLich>): Promise<ResultSetHeader> => {

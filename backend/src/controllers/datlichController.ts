@@ -81,22 +81,26 @@ export const getAvailableTimes = async (req: Request, res: Response) => {
 
 // Thêm mới lịch đặt
 export const createDatLich = async (req: Request, res: Response) => {
-  const { ngay_dat, gio_dat } = req.body;
-
   try {
+    const requestData = {
+      ...req.body,
+      nguoi_dung_id: req.body.nguoi_dung_id || null, // Nếu nguoi_dung_id rỗng, chuyển thành null
+    };
+
     // Kiểm tra số lượng lịch đặt trùng ngày và giờ
-    const existingCount = await DatLichModel.countDatLichByDateAndTime(ngay_dat, gio_dat);
+    const existingCount = await DatLichModel.countDatLichByDateAndTime(requestData.ngay_dat, requestData.gio_dat);
     if (existingCount >= 8) {
       return res.status(400).json({ message: 'Số lượng lịch đặt trùng ngày và giờ đã đạt tối đa' });
     }
 
-    // Nếu chưa đạt giới hạn, tiến hành tạo lịch đặt mới
-    const result = await DatLichModel.createDatLich(req.body);
+    // Tạo lịch đặt mới
+    const result = await DatLichModel.createDatLich(requestData);
     res.status(201).json({ message: 'Tạo lịch đặt thành công', dat_lich_id: result.insertId });
   } catch (error) {
     res.status(500).json({ message: error instanceof Error ? error.message : String(error) });
   }
 };
+
 
 // Hàm cập nhật lịch đặt
 export const updateDatLich = async (req: Request, res: Response) => {
