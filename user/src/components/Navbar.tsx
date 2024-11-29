@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
-  
+
   return (
-    <div className="container-fluid p-0">
+    <div className="container-fluid p-0  " style={{position: "fixed",top: "160px",  left: 0,right: 0,zIndex: 999,}}>
+    
       <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
         <Link to="/" className="navbar-brand d-block d-lg-none">
           <h1 className="m-0 display-5 text-capitalize font-italic text-white">
@@ -33,7 +34,7 @@ const Navbar: React.FC = () => {
           <Link to="/quote" className="btn btn-lg btn-primary px-3 d-none d-lg-block">Nhận báo giá</Link>
         </div>
       </nav>
-    </div>
+    </div >
   );
 };
 

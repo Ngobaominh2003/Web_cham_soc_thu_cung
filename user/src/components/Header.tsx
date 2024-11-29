@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   // Lấy avatar từ API server dựa trên nguoi_dung_id khi component mount
   useEffect(() => {
     const nguoi_dung_id = localStorage.getItem('nguoi_dung_id');
-  
+
     if (nguoi_dung_id) {
       fetch(`http://localhost:5000/api/users/${nguoi_dung_id}`)
         .then((response) => {
@@ -29,8 +29,8 @@ const Header: React.FC = () => {
         });
     }
   }, []);
-  
-  
+
+
 
   const toggleDropdown = () => {
     setOpen((prev) => !prev);
@@ -64,7 +64,7 @@ const Header: React.FC = () => {
 
   return (
     <div>
-      <div className="container-fluid">
+      <div className="container-fluid" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, backgroundColor: "#ffffff", }}>
         <div className="row bg-secondary py-2 px-lg-5">
           <div className="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
             <div className="d-inline-flex align-items-center">
@@ -107,11 +107,11 @@ const Header: React.FC = () => {
                         style={{ cursor: 'pointer' }}
                       >
                         <img
-                    src={avatar ? `http://localhost:5000/img/${avatar}` : '/img/icon_tk.png'} // Hiển thị avatar từ server hoặc ảnh mặc định
-                   
-                    className="avatar"
-                    style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '50px' }}
-                />
+                          src={avatar ? `http://localhost:5000/img/${avatar}` : '/img/icon_tk.png'} // Hiển thị avatar từ server hoặc ảnh mặc định
+
+                          className="avatar"
+                          style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '50px' }}
+                        />
                       </a>
 
                       {open && (

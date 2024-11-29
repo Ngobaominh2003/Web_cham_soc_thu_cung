@@ -10,7 +10,7 @@ const Blog2: React.FC = () => {
             <Navbar />
             <>
                 {/* Detail Start */}
-                <div className="container py-5">
+                <div className="container py-5"style={{marginTop: "245px",}}>
                     <div className="row pt-5">
                         <div className="col-lg-8">
                             <div className="d-flex flex-column text-left mb-4">

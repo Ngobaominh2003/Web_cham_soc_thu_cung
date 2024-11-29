@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
-import './Login.css';
+import '../pages/css/Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faUnlockAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faTwitter, faGooglePlus } from '@fortawesome/free-brands-svg-icons';
@@ -62,7 +62,7 @@ const Login: React.FC = () => {
     <div>
       <Header />
       <Navbar />
-      <div className="login-container">
+      <div className="login-container"style={{marginTop: "245px",}}>
         <h1>Đăng nhập ngay</h1>
         <form className="login-form" onSubmit={handleLogin}>
           <div className="input-group">

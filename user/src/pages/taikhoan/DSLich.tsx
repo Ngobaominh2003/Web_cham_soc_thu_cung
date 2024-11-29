@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 import Navbar from '../../components/Navbar';
 import TaiKhoanMenu from '../../components/TaiKhoanMenu';
 import { format, parseISO } from 'date-fns';
-import './TaiKhoan.css';
+import '../css/TaiKhoan.css';
 
 interface LichDat {
     dat_lich_id: number;
@@ -75,7 +75,7 @@ const DSLich: React.FC = () => {
         <div className="dat-lich-page">
             <Header />
             <Navbar />
-            <div className="content-container">
+            <div className="content-container"style={{marginTop: "245px",}}>
                 <TaiKhoanMenu />
                 <div className="table-container">
                     <h1>Danh Sách Lịch Hẹn</h1>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaUser, FaShoppingCart, FaBell, FaTags, FaCoins, FaFileAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import '../pages/taikhoan/TaiKhoan.css';
+import '../pages/css/TaiKhoan.css';
 
 const TaiKhoanMenu: React.FC = () => {
     const [open, setOpen] = useState(false);

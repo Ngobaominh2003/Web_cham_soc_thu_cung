@@ -4559,11 +4559,12 @@ input[type="button"].btn-block {
 .navbar .container-md,
 .navbar .container-lg,
 .navbar .container-xl {
+
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  
+
 }
 
 .navbar-brand {
@@ -11104,131 +11105,133 @@ h6 {
 
 
 .bg-primary {
-  background-color: #ff652f; /* Orange background for the form container */
+  background-color: #ff652f;
+  /* Orange background for the form container */
   padding: 40px 20px;
   border-radius: 5px;
 }
+
 /*Service*/
 
 /* Booking Start */
 /* Phần Form */
 .form-section {
-    background-color: #ff652f;
-    padding: 40px 20px;
-    border-radius: 5px;
+  background-color: #ff652f;
+  padding: 40px 20px;
+  border-radius: 5px;
 }
 
 .form-section .form-group input,
 .form-section .form-group select {
-    border: none;
-    border-radius: 5px;
-   
-    font-size: 16px;
-    background-color: #fff;
-    color: #333;
+  border: none;
+  border-radius: 5px;
+
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
 }
 
 .form-section .form-control::placeholder {
-    color: #999;
+  color: #999;
 }
 
 .form-section .custom-select {
-    height: auto;
-    border-radius: 5px;
-    padding: 12px 15px;
-    font-size: 16px;
-    line-height: 1.5;
-    appearance: none;
+  height: auto;
+  border-radius: 5px;
+  padding: 12px 15px;
+  font-size: 16px;
+  line-height: 1.5;
+  appearance: none;
 }
 
 .form-section .btn-dark {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    padding: 12px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 12px;
 }
 
 .form-section .btn-dark:hover {
-    background-color: #444;
+  background-color: #444;
 }
 
 .form-section .input-group {
-    position: relative;
+  position: relative;
 }
 
 .form-section .input-group .form-control {
-    padding-right: 45px;
+  padding-right: 45px;
 }
 
 .form-section .input-group .input-group-append {
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    pointer-events: none;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  pointer-events: none;
 }
 
 .form-section .input-group .fa-calendar,
 .form-section .input-group .fa-clock {
-    color: #333;
-    font-size: 1.2em;
+  color: #333;
+  font-size: 1.2em;
 }
 
 /* Phần Thông Tin Dịch Vụ */
 .service-info-section .text-secondary {
-    color: #68b684;
+  color: #68b684;
 }
 
 .service-info-section .text-primary {
-    color: #ff652f;
+  color: #ff652f;
 }
 
 .service-info-section h4 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .service-info-section h1.display-4 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .service-info-section .d-flex .h5 {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #333;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
 }
 
 .service-info-section .d-flex .flaticon-house,
 .service-info-section .d-flex .flaticon-food,
 .service-info-section .d-flex .flaticon-grooming,
 .service-info-section .d-flex .flaticon-toy {
-    font-size: 2rem;
-    color: #68b684;
+  font-size: 2rem;
+  color: #68b684;
 }
 
 .service-info-section .text-justify {
-    font-size: 1.2rem;
-    color: #666;
-    margin-top: 5px;
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 5px;
 }
 
 @media (max-width: 768px) {
-    .service-info-section h1.display-4 {
-        font-size: 2rem;
-    }
+  .service-info-section h1.display-4 {
+    font-size: 2rem;
+  }
 
-    .form-section {
-        padding: 20px;
-    }
+  .form-section {
+    padding: 20px;
+  }
 }
 
 /* Booking Start */

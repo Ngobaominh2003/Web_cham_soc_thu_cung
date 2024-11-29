@@ -1,230 +1,117 @@
-import React from 'react';
-import Header from '../components/Header';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import DatLich from '../phanchinh/DatLich';
-
+import React, { useState } from "react";
+import "../pages/css/Booking.css";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Booking: React.FC = () => {
-    return (
-        <div>
-            <Header />
-            <Navbar />
+  const [price, setPrice] = useState<number>(120000);
 
-            <>
-                {/* Services Start */}
-                <div className="container-fluid bg-light pt-5">
-                    <div className="container py-5">
-                        <div className="row pb-3">
-                            <div className="col-md-6 col-lg-4 mb-4">
-                                <div className="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
-                                    <h3 className="flaticon-house display-3 font-weight-normal text-secondary mb-3" />
-                                    <h3 className="mb-3">Pet Boarding</h3>
-                                    <p>
-                                        Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet,
-                                        diam sea est magna diam eos, rebum sit vero stet ipsum justo
-                                    </p>
-                                    <a className="text-uppercase font-weight-bold" href="">
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-lg-4 mb-4">
-                                <div className="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
-                                    <h3 className="flaticon-food display-3 font-weight-normal text-secondary mb-3" />
-                                    <h3 className="mb-3">Pet Feeding</h3>
-                                    <p>
-                                        Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet,
-                                        diam sea est magna diam eos, rebum sit vero stet ipsum justo
-                                    </p>
-                                    <a className="text-uppercase font-weight-bold" href="">
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-lg-4 mb-4">
-                                <div className="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
-                                    <h3 className="flaticon-grooming display-3 font-weight-normal text-secondary mb-3" />
-                                    <h3 className="mb-3">Pet Grooming</h3>
-                                    <p>
-                                        Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet,
-                                        diam sea est magna diam eos, rebum sit vero stet ipsum justo
-                                    </p>
-                                    <a className="text-uppercase font-weight-bold" href="">
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* Services End */}
-                {/* Booking Start */}
-                <div className="container-fluid">
-                    <div className="container">
-                        <div className="row align-items-center">
-                            <DatLich/>
-                            <div className="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
-                                <h4 className="text-secondary mb-3">Going for a vacation?</h4>
-                                <h1 className="display-4 mb-4">
-                                    Book For <span className="text-primary">Your Pet</span>
-                                </h1>
-                                <p>
-                                    Labore vero lorem eos sed aliquy ipsum aliquy sed. Vero dolore
-                                    dolore takima ipsum lorem rebum
-                                </p>
-                                <div className="row py-2">
-                                    <div className="col-sm-6">
-                                        <div className="d-flex flex-column">
-                                            <div className="d-flex align-items-center mb-2">
-                                                <h1 className="flaticon-house font-weight-normal text-secondary m-0 mr-3" />
-                                                <h5 className="text-truncate m-0">Pet Boarding</h5>
-                                            </div>
-                                            <p>
-                                                Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6">
-                                        <div className="d-flex flex-column">
-                                            <div className="d-flex align-items-center mb-2">
-                                                <h1 className="flaticon-food font-weight-normal text-secondary m-0 mr-3" />
-                                                <h5 className="text-truncate m-0">Pet Feeding</h5>
-                                            </div>
-                                            <p>
-                                                Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6">
-                                        <div className="d-flex flex-column">
-                                            <div className="d-flex align-items-center mb-2">
-                                                <h1 className="flaticon-grooming font-weight-normal text-secondary m-0 mr-3" />
-                                                <h5 className="text-truncate m-0">Pet Grooming</h5>
-                                            </div>
-                                            <p className="m-0">
-                                                Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6">
-                                        <div className="d-flex flex-column">
-                                            <div className="d-flex align-items-center mb-2">
-                                                <h1 className="flaticon-toy font-weight-normal text-secondary m-0 mr-3" />
-                                                <h5 className="text-truncate m-0">Pet Tranning</h5>
-                                            </div>
-                                            <p className="m-0">
-                                                Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* Booking Start */}
-                {/* Pricing Plan Start */}
-                <div className="container-fluid bg-light pt-5 pb-4">
-                    <div className="container py-5">
-                        <div className="d-flex flex-column text-center mb-5">
-                            <h4 className="text-secondary mb-3">Pricing Plan</h4>
-                            <h1 className="display-4 m-0">Choose the <span className="text-primary">Best Price</span></h1>
-                        </div>
-                        <div className="row">
-                            {/* Basic Plan */}
-                            <div className="col-lg-4 mb-4">
-                                <div className="card border-0">
-                                    <div className="card-header position-relative border-0 p-0 mb-4">
-                                        <img className="card-img-top" src="img/price-1.jpg" alt="" />
-                                        <div className="position-absolute d-flex flex-column align-items-center justify-content-center w-100 h-100" style={{ top: 0, left: 0, zIndex: 1, background: 'rgba(0, 0, 0, .5)' }}>
-                                            <h3 className="text-primary mb-3">Basic</h3>
-                                            <h1 className="display-4 text-white mb-0">
-                                                <small className="align-top" style={{ fontSize: '22px', lineHeight: '45px' }}>$</small>49<small className="align-bottom" style={{ fontSize: '16px', lineHeight: '40px' }}>/ Mo</small>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                    <div className="card-body text-center p-0">
-                                        <ul className="list-group list-group-flush mb-4">
-                                            <li className="list-group-item p-2"><i className="fa fa-check text-secondary mr-2"></i>Feeding</li>
-                                            <li className="list-group-item p-2"><i className="fa fa-check text-secondary mr-2"></i>Boarding</li>
-                                            <li className="list-group-item p-2"><i className="fa fa-times text-danger mr-2"></i>Spa & Grooming</li>
-                                            <li className="list-group-item p-2"><i className="fa fa-times text-danger mr-2"></i>Veterinary Medicine</li>
-                                        </ul>
-                                    </div>
-                                    <div className="card-footer border-0 p-0">
-                                        <a href="" className="btn btn-primary btn-block p-3" style={{ borderRadius: 0 }}>Signup Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* Standard Plan */}
-                            <div className="col-lg-4 mb-4">
-                                <div className="card border-0">
-                                    <div className="card-header position-relative border-0 p-0 mb-4">
-                                        <img className="card-img-top" src="img/price-2.jpg" alt="" />
-                                        <div className="position-absolute d-flex flex-column align-items-center justify-content-center w-100 h-100" style={{ top: 0, left: 0, zIndex: 1, background: 'rgba(0, 0, 0, .5)' }}>
-                                            <h3 className="text-secondary mb-3">Standard</h3>
-                                            <h1 className="display-4 text-white mb-0">
-                                                <small className="align-top" style={{ fontSize: '22px', lineHeight: '45px' }}>$</small>99<small className="align-bottom" style={{ fontSize: '16px', lineHeight: '40px' }}>/ Mo</small>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                    <div className="card-body text-center p-0">
-                                        <ul className="list-group list-group-flush mb-4">
-                                            <li className="list-group-item p-2"><i className="fa fa-check text-secondary mr-2"></i>Feeding</li>
-                                            <li className="list-group-item p-2"><i className="fa fa-check text-secondary mr-2"></i>Boarding</li>
-                                            <li className="list-group-item p-2"><i className="fa fa-check text-secondary mr-2"></i>Spa & Grooming</li>
-                                            <li className="list-group-item p-2"><i className="fa fa-times text-danger mr-2"></i>Veterinary Medicine</li>
-                                        </ul>
-                                    </div>
-                                    <div className="card-footer border-0 p-0">
-                                        <a href="" className="btn btn-secondary btn-block p-3" style={{ borderRadius: 0 }}>Signup Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* Premium Plan */}
-                            <div className="col-lg-4 mb-4">
-                                <div className="card border-0">
-                                    <div className="card-header position-relative border-0 p-0 mb-4">
-                                        <img className="card-img-top" src="img/price-3.jpg" alt="" />
-                                        <div className="position-absolute d-flex flex-column align-items-center justify-content-center w-100 h-100" style={{ top: 0, left: 0, zIndex: 1, background: 'rgba(0, 0, 0, .5)' }}>
-                                            <h3 className="text-primary mb-3">Premium</h3>
-                                            <h1 className="display-4 text-white mb-0">
-                                                <small className="align-top" style={{ fontSize: '22px', lineHeight: '45px' }}>$</small>149<small className="align-bottom" style={{ fontSize: '16px', lineHeight: '40px' }}>/ Mo</small>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                    <div className="card-body text-center p-0">
-                                        <ul className="list-group list-group-flush mb-4">
-                                            <li className="list-group-item p-2"><i className="fa fa-check text-secondary mr-2"></i>Feeding</li>
-                                            <li className="list-group-item p-2"><i className="fa fa-check text-secondary mr-2"></i>Boarding</li>
-                                            <li className="list-group-item p-2"><i className="fa fa-check text-secondary mr-2"></i>Spa & Grooming</li>
-                                            <li className="list-group-item p-2"><i className="fa fa-check text-secondary mr-2"></i>Veterinary Medicine</li>
-                                        </ul>
-                                    </div>
-                                    <div className="card-footer border-0 p-0">
-                                        <a href="" className="btn btn-primary btn-block p-3" style={{ borderRadius: 0 }}>Signup Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* Pricing Plan End */}
-                {/* Footer Start */}
-                <Footer />
-                {/* Footer End */}
-                {/* Back to Top */}
-                <a href="#" className="btn btn-lg btn-primary back-to-top">
-                    <i className="fa fa-angle-double-up" />
-                </a>
-                {/* JavaScript Libraries */}
-                {/* Contact Javascript File */}
-                {/* Template Javascript */}
-            </>
+  const handleWeightChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const weight = e.target.value;
+    switch (weight) {
+      case "under5kg":
+        setPrice(120000);
+        break;
+      case "from5to10kg":
+        setPrice(150000);
+        break;
+      case "from10to15kg":
+        setPrice(180000);
+        break;
+      case "dayOnly":
+        setPrice(98000);
+        break;
+      default:
+        setPrice(0);
+    }
+  };
 
+  return (
+    <div className="full-page-container">
+      {/* Header và Navbar */}
+      <Header />
+      <Navbar />
+
+      {/* Nội dung chính */}
+      <div className="booking-container" style={{ marginTop: "245px", }}>
+        <header className="header">
+          <h1 className="header-title">
+            ĐẶT PHÒNG KHÁCH SẠN CHO THÚ CƯNG TẠI PETLOVE
+          </h1>
+        </header>
+
+        <div className="main-content">
+          <div className="left-section">
+            <iframe
+              src="https://www.youtube.com/embed/p6UDKjmWp1Y"
+              title="Fago Pet Video"
+              className="video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <div className="thumbnails">
+              {Array.from({ length: 4 }).map((_, index) => (
+                <img
+                  key={index}
+                  src={`https://via.placeholder.com/150?text=Image+${index + 1}`}
+                  alt={`Thumbnail ${index + 1}`}
+                  className="thumbnail"
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="right-section">
+            <div>
+              <h2 className="sub-title">Tiện ích</h2>
+              <ul className="list">
+                <li>Camera theo dõi 24/24</li>
+                <li>2-3 bữa mỗi ngày</li>
+                <li>Vệ sinh chuồng mỗi ngày</li>
+                <li>Vui chơi mỗi ngày 2 lần</li>
+                <li>Phòng có điều hòa 24/7</li>
+                <li>Cung cấp hình ảnh và video của các bé mỗi ngày</li>
+              </ul>
+            </div>
+            <div>
+              <h2 className="sub-title">Ưu đãi</h2>
+              <ul className="list">
+                <li>3 ngày giảm 10% phí dịch vụ spa và grooming</li>
+                <li>7 ngày giảm 5% phí khách sạn và 20% phí spa</li>
+                <li>15 ngày giảm 5% phí dịch vụ khách sạn + tặng 1 lần tắm</li>
+                <li>30 ngày giảm 5% phí khách sạn + tặng 2 lần tắm + miễn phí đưa đón (&lt;5km)</li>
+                <li>Gửi từ 2 bé trở lên giảm 5% phí dịch vụ khách sạn</li>
+              </ul>
+            </div>
+          </div>
         </div>
-    );
+
+        <div className="booking-form">
+          <h1 className="booking-form-title">ĐẶT PHÒNG KHÁCH SẠN CHO CHÓ</h1>
+          <div>
+            <label htmlFor="weight" className="weight-label">
+              Chọn cân nặng:
+            </label>
+            <select id="weight" onChange={handleWeightChange} className="select">
+              <option value="under5kg">Dưới 5kg</option>
+              <option value="from5to10kg">Từ 5kg - 10kg</option>
+              <option value="from10to15kg">Từ 10kg - 15kg</option>
+              <option value="dayOnly">Gửi trong ngày</option>
+            </select>
+          </div>
+          <h2 className="price">
+            Giá: <span>{price.toLocaleString()}đ/ngày</span>
+          </h2>
+          <button className="button">Đặt phòng ngay</button>
+        </div>
+      </div>
+
+
+      {/* Footer */}
+      <Footer />
+    </div>
+  );
 };
 
 export default Booking;

@@ -655,3 +655,68 @@ table img {
 .status.da_huy {
   background-color: #f44336; /* Màu đỏ cho trạng thái đã hủy */
 }
+
+
+/* Phong.css */
+
+/* Phong.css */
+
+/* Container chính cho toàn bộ danh sách phòng */
+.phong-details {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Lưới chứa các phòng */
+.phong-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 120px); /* 3 cột, mỗi cột có chiều rộng 120px */
+  grid-template-rows: repeat(3, 120px);    /* 3 hàng, mỗi hàng có chiều cao 120px */
+  gap: 20px;  /* Khoảng cách giữa các ô */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Định dạng cho từng ô vuông phòng */
+.phong-room {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;   /* Viền cong */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */
+  border: none;           /* Không có viền */
+}
+
+/* Định dạng cho số phòng nằm giữa */
+.phong-roomText {
+  color: white;
+  text-align: center;
+}
+
+/* Khi nhấn vào ô phòng, thay đổi màu sắc */
+.phong-room:hover {
+  opacity: 0.8; /* Hiệu ứng mờ khi di chuột vào ô */
+}
+
+/* Các màu sắc cho phòng */
+.phong-green {
+  background-color: #4CAF50; /* Màu xanh lá cây */
+}
+
+.phong-red {
+  background-color: #f44336; /* Màu đỏ */
+}
+
+.phong-yellow {
+  background-color: #ffeb3b; /* Màu vàng */
+}
+
+/*Phong*/

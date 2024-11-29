@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './TaiKhoan.css';
+import '../css/TaiKhoan.css';
 import Header from '../../components/Header';
 import Navbar from '../../components/Navbar';
 import TaiKhoanMenu from '../../components/TaiKhoanMenu';
@@ -92,7 +92,7 @@ const TaiKhoan: React.FC = () => {
     <div className="tai-khoan-page">
   <Header />
   <Navbar />
-  <div className="profile-container">
+  <div className="profile-container"style={{marginTop: "245px",}}>
     <TaiKhoanMenu />
     <div className="profile-content">
       <h2>Hồ Sơ Của Tôi</h2>

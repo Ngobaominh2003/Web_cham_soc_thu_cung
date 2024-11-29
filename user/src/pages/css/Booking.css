@@ -1,0 +1,161 @@
+/* Container chính của Booking */
+.full-page-container {
+    min-height: 100vh; /* Đảm bảo trang kéo dài đủ chiều cao */
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+  }
+  
+  /* Container Booking */
+  .booking-container {
+    flex: 1;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .header-title {
+    color: #ffa500;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  /* Nội dung chính */
+  .main-content {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Hỗ trợ giao diện responsive */
+    margin-bottom: 40px;
+  }
+  
+  .left-section,
+  .right-section {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Video Section */
+  .video {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+  }
+  
+  .thumbnails {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .thumbnail {
+    border-radius: 5px;
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .thumbnail:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Phần danh sách tiện ích và ưu đãi */
+  .sub-title {
+    color: #ffa500;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1.8;
+  }
+  
+  .list li {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+  
+  /* Form đặt phòng */
+  .booking-form {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-form-title {
+    color: #ffa500;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .weight-label {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .price {
+    font-size: 20px;
+    color: #ff4500;
+    margin: 20px 0;
+  }
+  
+  .price span {
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .button {
+    background-color: #ffa500;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #e69500;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: auto; /* Đẩy Footer xuống đáy nếu nội dung ít */
+  }
+  

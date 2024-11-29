@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
-import './Register.css';
+import '../pages/css/Register.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faUnlockAlt, faCheck } from '@fortawesome/free-solid-svg-icons';
 
@@ -55,7 +55,7 @@ const Register: React.FC = () => {
         <div>
             <Header />
             <Navbar />
-            <div className="register-container">
+            <div className="register-container"style={{marginTop: "245px",}}>
                 <h2>Sign Up Now</h2>
                 {errorMessage && <div className="error-message">{errorMessage}</div>}
                 <form className="register-form" onSubmit={handleSubmit}>

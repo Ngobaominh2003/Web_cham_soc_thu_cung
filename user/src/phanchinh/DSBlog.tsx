@@ -44,7 +44,7 @@ const DSBlog: React.FC = () => {
     return (
         <div>
            
-            <div className="container pt-5">
+            <div className="container pt-5"style={{ marginTop: "245px" }}>
                 <div className="d-flex flex-column text-center mb-5 pt-5">
                     <h4 className="text-secondary mb-3">Pet DSBlog</h4>
                     <h1 className="display-4 m-0">

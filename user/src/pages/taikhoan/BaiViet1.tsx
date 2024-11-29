@@ -136,7 +136,7 @@ const BaiViet1: React.FC = () => {
     <div className="bai-viet-page">
       <Header />
       <Navbar />
-      <div className="content-row">
+      <div className="content-row"style={{marginTop: "245px",}}>
         <TaiKhoanMenu />
 
         <div className="details1">

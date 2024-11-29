@@ -14,6 +14,8 @@ import GoiDichVu from './pages/GoiDichVu';
 import GoiDichVuAdd from './pages/GoiDichVuAdd';
 import GoiDichVuUpdate from './pages/GoiDichVuUpdate';
 import ThuCung from './pages/ThuCung';
+import Phong from './pages/Phong';
+
 
 const App: React.FC = () => {
   // State for managing selected entities
@@ -40,6 +42,7 @@ const App: React.FC = () => {
           <Route path="/GoiDichVuAdd" element={<GoiDichVuAdd />} />
           <Route path="/GoiDichVuUpdate" element={<GoiDichVuUpdate selectedGoiDichVu={selectedGoiDichVu} />} />
           <Route path="/ThuCung" element={<ThuCung />} />
+          <Route path="/Phong" element={<Phong />} />
         </Routes>
       </div>
     </Router>

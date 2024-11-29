@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import TaiKhoan from './pages/taikhoan/TaiKhoan';
 import BaiViet1 from './pages/taikhoan/BaiViet1';
 import DSLich from './pages/taikhoan/DSLich';
+import DatLich1 from './pages/DatLich1';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -32,6 +33,7 @@ const App: React.FC = () => {
           <Route path="/TaiKhoan" element={<TaiKhoan />} />
           <Route path="/BaiViet1" element={<BaiViet1 />} />
           <Route path="/DSLich" element={<DSLich />} />
+          <Route path="/DatLich1" element={<DatLich1 />} />
 
           <Route path="/Login" element={<Login />} />
           <Route path="/Register" element={<Register />} />

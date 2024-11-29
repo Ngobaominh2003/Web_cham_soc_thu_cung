@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Foorter from '../components/Footer';
 import DatLich from '../phanchinh/DatLich';
 import DSBlog from '../phanchinh/DSBlog';
+import DSDichVu from '../phanchinh/DSDichVu';
 
 
 interface ServiceType {
@@ -43,9 +44,8 @@ const HomePage: React.FC = () => {
         <div>
             <Header />
             <Navbar />
-            <main>
-
-                <div className="container-fluid p-0">
+            <main style={{marginTop: "245px",}} >
+                <div className="container-fluid p-0" >
                     <div id="header-carousel" className="carousel slide" data-ride="carousel">
                         <div className="carousel-inner">
                             <div className="carousel-item active">
@@ -211,50 +211,7 @@ const HomePage: React.FC = () => {
 
                     {/* About End */}
                     {/* Services Start */}
-                    <div className="container-fluid bg-light pt-5">
-                        <div className="container py-5">
-                            <div className="d-flex flex-column text-center mb-5">
-                                <h4 className="text-secondary mb-3">Dịch vụ của chúng tôi</h4>
-                                <h1 className="display-4 m-0">
-                                    <span className="text-primary">DỊCH VỤ THÚ CƯNG</span> CAO CẤP
-                                </h1>
-                            </div>
-                            <div className="service-list row pb-3">
-                                {loading ? (
-                                    <p>Loading...</p>
-                                ) : error ? (
-                                    <p>{error}</p>
-                                ) : (
-                                    services.map((service) => (
-                                        <div key={service.dich_vu_id} className="col-md-6 col-lg-4 mb-4">
-                                            <div className="service-block d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
-                                                <h3 className="display-3 font-weight-normal text-secondary mb-3">
-                                                    <img
-                                                        src={`http://localhost:5000/img/${service.logo}`}
-                                                        alt={service.ten_dich_vu}
-                                                        width="80"
-                                                        height="80"
-                                                    />
-                                                </h3>
-                                                <h3 className="mb-3">{service.ten_dich_vu}</h3>
-                                                <p className="description">
-                                                    {service.mo_ta || 'No description available'}
-                                                </p>
-                                                <div className="button-group">
-                                                    <a className="btn btn-primary text-uppercase font-weight-bold mr-2" href="#">
-                                                        Đặt Lịch
-                                                    </a>
-                                                    <a className="btn btn-secondary text-uppercase font-weight-bold" href="#">
-                                                        Xem Chi Tiết
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))
-                                )}
-                            </div>
-                        </div>
-                    </div>
+                    <DSDichVu/>
                     {/* Services End */}
                     {/* Features Start */}
                     <div className="container">
