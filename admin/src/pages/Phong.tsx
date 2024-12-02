@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation';
 import DieuKhien from '../components/DieuKhien';
-import BaiVietUpdate from './BaiVietUpdate';
-import BaiVietAdd from './BaiVietAdd';
+import PhongUpdate from './PhongUpdate';
+import PhongAdd from './PhongAdd';
 import axios from 'axios';
 
 // Định nghĩa kiểu dữ liệu cho phòng
@@ -134,8 +134,9 @@ const Phong: React.FC = () => {
 
         {/* ================ Form cập nhật bài viết ================= */}
         <div className="details-container">
-          <BaiVietUpdate baiVietChon={null} />
-          <BaiVietAdd />
+        <PhongAdd />
+        <PhongUpdate />
+          
         </div>
       </div>
     </div>

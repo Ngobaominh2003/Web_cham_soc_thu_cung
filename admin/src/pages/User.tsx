@@ -108,7 +108,7 @@ const Users: React.FC = () => {
                                             <img
                                                 src={`http://localhost:5000/img/${user.avata}`}
                                                 alt={`Avatar ${user.ten_dang_nhap}`}
-                                                className="avatar"                                               
+                                                className="avatar"
                                             />
                                         </td>
                                         <td>{user.ngay_tao}</td>
@@ -123,10 +123,10 @@ const Users: React.FC = () => {
                     </div>
                 </div>
 
-
-                <UpdateUser user={selectedUser} />
-
-                <AddUser />
+                <div className="details-container">
+                    <UpdateUser user={selectedUser} />
+                    <AddUser />
+                </div>
             </div>
         </div>
     );

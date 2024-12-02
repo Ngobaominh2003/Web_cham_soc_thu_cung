@@ -15,6 +15,7 @@ import GoiDichVuAdd from './pages/GoiDichVuAdd';
 import GoiDichVuUpdate from './pages/GoiDichVuUpdate';
 import ThuCung from './pages/ThuCung';
 import Phong from './pages/Phong';
+import DatPhong from './pages/DatPhong';
 
 
 const App: React.FC = () => {
@@ -43,6 +44,7 @@ const App: React.FC = () => {
           <Route path="/GoiDichVuUpdate" element={<GoiDichVuUpdate selectedGoiDichVu={selectedGoiDichVu} />} />
           <Route path="/ThuCung" element={<ThuCung />} />
           <Route path="/Phong" element={<Phong />} />
+          <Route path="/DatPhong" element={<DatPhong />} />
         </Routes>
       </div>
     </Router>

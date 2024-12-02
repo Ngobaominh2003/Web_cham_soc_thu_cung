@@ -1,11 +1,10 @@
-import connection from '../config/db';
 import { RowDataPacket } from 'mysql2/promise';
+import connection from '../config/db'; // Đảm bảo bạn đã cấu hình kết nối với MySQL
 
 // Định nghĩa interface cho phòng
 export interface Phong extends RowDataPacket {
   phong_id: number;
   so_phong: string;
-  gia_phong: number;
   trang_thai_phong: 'đang trống' | 'đã đặt' | 'đang sửa chữa';
   ngay_tao: Date;
 }
@@ -13,31 +12,36 @@ export interface Phong extends RowDataPacket {
 // Lấy tất cả phòng
 export const getAllPhong = async (): Promise<Phong[]> => {
   const [rows] = await connection.execute<RowDataPacket[]>(
-    'SELECT * FROM phong'
+    'SELECT phong_id, so_phong, trang_thai_phong, ngay_tao FROM phong'
   );
   return rows as Phong[];
 };
-
+// Lấy tất cả các phòng trống
+export const getPhongTrong = async (): Promise<Phong[]> => {
+  const [rows] = await connection.execute<RowDataPacket[]>(
+    'SELECT phong_id, so_phong, trang_thai_phong, ngay_tao FROM phong WHERE trang_thai_phong = "đang trống"'
+  );
+  return rows as Phong[];
+};
 // Lấy phòng theo `phong_id`
 export const getPhongById = async (phong_id: number): Promise<Phong | null> => {
   const [rows] = await connection.execute<RowDataPacket[]>(
-    'SELECT * FROM phong WHERE phong_id = ?',
+    'SELECT phong_id, so_phong, trang_thai_phong, ngay_tao FROM phong WHERE phong_id = ?',
     [phong_id]
   );
   return rows.length > 0 ? (rows[0] as Phong) : null;
 };
 
-// Thêm phòng mới
+// Thêm phòng mới (không có gia_phong)
 export const createPhong = async (
-  so_phong: string,
-  gia_phong: number,
+  so_phong: string,  // Giữ lại so_phong
   trang_thai_phong: 'đang trống' | 'đã đặt' | 'đang sửa chữa' = 'đang trống'
 ): Promise<void> => {
   const ngay_tao = new Date();
 
   await connection.execute(
-    'INSERT INTO phong (so_phong, gia_phong, trang_thai_phong, ngay_tao) VALUES (?, ?, ?, ?)',
-    [so_phong, gia_phong, trang_thai_phong, ngay_tao]
+    'INSERT INTO phong (so_phong, trang_thai_phong, ngay_tao) VALUES (?, ?, ?)',
+    [so_phong, trang_thai_phong, ngay_tao]
   );
 };
 
@@ -45,7 +49,6 @@ export const createPhong = async (
 export const updatePhong = async (
   phong_id: number,
   so_phong?: string,   // Optional
-  gia_phong?: number,  // Optional
   trang_thai_phong?: 'đang trống' | 'đã đặt' | 'đang sửa chữa'  // Optional
 ): Promise<void> => {
   let query = 'UPDATE phong SET ';
@@ -55,12 +58,6 @@ export const updatePhong = async (
   if (so_phong) {
     query += 'so_phong = ?, ';
     values.push(so_phong);
-  }
-
-  // Kiểm tra và thêm trường gia_phong nếu có giá trị
-  if (gia_phong) {
-    query += 'gia_phong = ?, ';
-    values.push(gia_phong);
   }
 
   // Kiểm tra và thêm trường trang_thai_phong nếu có giá trị
@@ -103,6 +100,7 @@ export const updatePhongStatus = async (
     throw new Error('Không thể cập nhật trạng thái phòng.');
   }
 };
+
 // Xóa phòng theo `phong_id`
 export const deletePhong = async (phong_id: number): Promise<void> => {
   await connection.execute(
