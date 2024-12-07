@@ -1,30 +1,124 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, } from "react";
+import { useNavigate } from "react-router-dom";
+
+import axios from "axios";
 import "../pages/css/Booking.css";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const Booking: React.FC = () => {
-  const [price, setPrice] = useState<number>(120000);
+  const [formData, setFormData] = useState({
+    so_phong: "",
+    phong_id: "",
+    ngay_bat_dau: "",
+    ngay_ket_thuc: "",
+    can_nang: "Dưới 5 kg",
+    tien: "", // Giá tổng
+  });
 
-  const handleWeightChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const weight = e.target.value;
-    switch (weight) {
-      case "under5kg":
-        setPrice(120000);
-        break;
-      case "from5to10kg":
-        setPrice(150000);
-        break;
-      case "from10to15kg":
-        setPrice(180000);
-        break;
-      case "dayOnly":
-        setPrice(98000);
-        break;
-      default:
-        setPrice(0);
+  const [rooms, setRooms] = useState<any[]>([]); // Danh sách phòng
+  const [loading, setLoading] = useState<boolean>(true); // Trạng thái tải danh sách phòng
+  const navigate = useNavigate();
+
+  const weightToPrice: { [key: string]: number } = {
+    "Dưới 5 kg": 120000,
+    "Từ 6kg - 10kg": 150000,
+    "Từ 11kg - 15kg": 180000,
+  };
+
+  // Tính tổng tiền mỗi khi các trường thay đổi
+  const calculateTotalPrice = () => {
+    if (formData.ngay_bat_dau && formData.ngay_ket_thuc && formData.can_nang) {
+      const startDate = new Date(formData.ngay_bat_dau);
+      const endDate = new Date(formData.ngay_ket_thuc);
+      const days = (endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24); // Tính số ngày
+
+      const pricePerDay = weightToPrice[formData.can_nang] || 0;
+      const totalPrice = days * pricePerDay;
+
+      setFormData((prevData) => ({
+        ...prevData,
+        tien: totalPrice.toString(),
+      }));
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        tien: "",
+      }));
     }
+  };
+
+  // Xử lý khi giá trị của các trường thay đổi
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Lấy danh sách phòng từ API
+  useEffect(() => {
+    const fetchRooms = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get("http://localhost:5000/api/phongtrong");
+        if (response.status === 200) {
+          setRooms(response.data);
+        } else {
+          alert("Không thể lấy danh sách phòng!");
+        }
+      } catch (error) {
+        console.error("Lỗi khi lấy danh sách phòng:", error);
+        alert("Đã xảy ra lỗi khi lấy danh sách phòng.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchRooms();
+  }, []);
+
+  // Tính tổng tiền mỗi khi thay đổi ngày bắt đầu, ngày kết thúc hoặc cân nặng
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [formData.ngay_bat_dau, formData.ngay_ket_thuc, formData.can_nang]);
+
+  // Hàm xử lý khi nhấn nút "Đặt phòng"
+  const handleBooking = () => {
+    let errorMessage = "";
+
+    // Kiểm tra nếu chưa chọn số phòng
+    if (!formData.phong_id) {
+      errorMessage += "Vui lòng chọn số phòng.\n";
+    }
+
+    // Kiểm tra nếu ngày bắt đầu không có giá trị
+    if (!formData.ngay_bat_dau) {
+      errorMessage += "Vui lòng chọn ngày bắt đầu.\n";
+    }
+
+    // Kiểm tra nếu ngày kết thúc không có giá trị
+    if (!formData.ngay_ket_thuc) {
+      errorMessage += "Vui lòng chọn ngày kết thúc.\n";
+    }
+
+    // Nếu có lỗi, hiển thị thông báo và không chuyển trang
+    if (errorMessage) {
+      alert(errorMessage);
+      return;
+    }
+
+    // Nếu không có lỗi, chuyển trang và truyền dữ liệu sang trang ThanhToan
+    navigate("/ThanhToan", {
+      state: {
+        phong_id: formData.phong_id,
+        ngay_bat_dau: formData.ngay_bat_dau,
+        ngay_ket_thuc: formData.ngay_ket_thuc,
+        can_nang: formData.can_nang,
+        tien: formData.tien,
+      },
+    });
   };
 
   return (
@@ -34,7 +128,7 @@ const Booking: React.FC = () => {
       <Navbar />
 
       {/* Nội dung chính */}
-      <div className="booking-container" style={{ marginTop: "245px", }}>
+      <div className="booking-container" style={{ marginTop: "245px" }}>
         <header className="header">
           <h1 className="header-title">
             ĐẶT PHÒNG KHÁCH SẠN CHO THÚ CƯNG TẠI PETLOVE
@@ -88,25 +182,87 @@ const Booking: React.FC = () => {
         </div>
 
         <div className="booking-form">
-          <h1 className="booking-form-title">ĐẶT PHÒNG KHÁCH SẠN CHO CHÓ</h1>
-          <div>
-            <label htmlFor="weight" className="weight-label">
-              Chọn cân nặng:
-            </label>
-            <select id="weight" onChange={handleWeightChange} className="select">
-              <option value="under5kg">Dưới 5kg</option>
-              <option value="from5to10kg">Từ 5kg - 10kg</option>
-              <option value="from10to15kg">Từ 10kg - 15kg</option>
-              <option value="dayOnly">Gửi trong ngày</option>
-            </select>
-          </div>
-          <h2 className="price">
-            Giá: <span>{price.toLocaleString()}đ/ngày</span>
-          </h2>
-          <button className="button">Đặt phòng ngay</button>
-        </div>
+      <h1 className="booking-form-title">ĐẶT PHÒNG KHÁCH SẠN CHO THÚ CƯNG</h1>
+
+      {/* Chọn số phòng */}
+      <div>
+        <label htmlFor="phong_id" className="weight-label">
+          Chọn số phòng:
+        </label>
+        <select
+          id="phong_id"
+          name="phong_id"
+          value={formData.phong_id}
+          onChange={handleChange}
+        >
+          <option value="">Chọn phòng</option>
+          {rooms.map((room) => (
+            <option key={room.phong_id} value={room.phong_id}>
+              {room.so_phong}
+            </option>
+          ))}
+        </select>
       </div>
 
+      {/* Chọn cân nặng */}
+      <div>
+        <label htmlFor="weight" className="weight-label">
+          Chọn cân nặng:
+        </label>
+        <select
+          id="weight"
+          name="can_nang"
+          value={formData.can_nang}
+          onChange={handleChange}
+          className="select"
+        >
+          <option value="Dưới 5 k">Dưới 5kg</option>
+          <option value="Từ 6kg - 10kg">Từ 6kg - 10kg</option>
+          <option value="Từ 11kg - 15kg">Từ 11kg - 15kg</option>
+        </select>
+      </div>
+
+      {/* Ngày bắt đầu */}
+      <div>
+        <label htmlFor="start-date" className="date-label">
+          Ngày bắt đầu:
+        </label>
+        <input
+          type="date"
+          id="start-date"
+          name="ngay_bat_dau"
+          value={formData.ngay_bat_dau}
+          onChange={handleChange}
+          className="date-input"
+        />
+      </div>
+
+      {/* Ngày kết thúc */}
+      <div>
+        <label htmlFor="end-date" className="date-label">
+          Ngày kết thúc:
+        </label>
+        <input
+          type="date"
+          id="end-date"
+          name="ngay_ket_thuc"
+          value={formData.ngay_ket_thuc}
+          onChange={handleChange}
+          className="date-input"
+        />
+      </div>
+
+      {/* Hiển thị giá */}
+      <h2 className="price">
+        Giá: <span>{formData.tien ? formData.tien.toLocaleString() : "0"}đ</span>
+      </h2>
+
+      {/* Nút đặt phòng */}
+      <button className="button" onClick={handleBooking}>
+        Đặt phòng ngay
+      </button>
+    </div>
+      </div>
 
       {/* Footer */}
       <Footer />
