@@ -55,7 +55,7 @@ const Register: React.FC = () => {
         <div>
             <Header />
             <Navbar />
-            <div className="register-container"style={{marginTop: "245px",}}>
+            <div className="register-container"style={{marginTop: "225px",}}>
                 <h2>Sign Up Now</h2>
                 {errorMessage && <div className="error-message">{errorMessage}</div>}
                 <form className="register-form" onSubmit={handleSubmit}>

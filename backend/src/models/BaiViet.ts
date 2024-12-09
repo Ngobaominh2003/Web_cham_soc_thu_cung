@@ -28,6 +28,18 @@ export const getBaiVietByNguoiDung = async (nguoi_dung_id: number): Promise<BaiV
   return rows as BaiViet[];
 };
 
+// Lấy bài viết theo bai_viet_id
+
+export const getBaiVietById = async (bai_viet_id: number): Promise<BaiViet | null> => {
+  const [rows] = await connection.execute<RowDataPacket[]>(
+    'SELECT * FROM bai_viet WHERE bai_viet_id = ?',
+    [bai_viet_id]
+  );
+  // Return the first row or null if no results
+  return rows.length > 0 ? (rows[0] as BaiViet) : null;
+};
+
+
 // Thêm bài viết mới
 export const createBaiViet = async (
   nguoi_dung_id: number | null,

@@ -128,7 +128,7 @@ const Booking: React.FC = () => {
       <Navbar />
 
       {/* Nội dung chính */}
-      <div className="booking-container" style={{ marginTop: "245px" }}>
+      <div className="booking-container" style={{ marginTop: "225px" }}>
         <header className="header">
           <h1 className="header-title">
             ĐẶT PHÒNG KHÁCH SẠN CHO THÚ CƯNG TẠI PETLOVE

@@ -117,7 +117,7 @@ const ThanhToan: React.FC = () => {
     <div>
       <Header />
       <Navbar />
-      <div className="payment-container" style={{ marginTop: "245px", }}>
+      <div className="payment-container" style={{ marginTop: "225px", }}>
 
         <div className="thanh-toan-section">
           <h3 className="thanh-toan-section-title">Thông Tin Giao Hàng</h3>

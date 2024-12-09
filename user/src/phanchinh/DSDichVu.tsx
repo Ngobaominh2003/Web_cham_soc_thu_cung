@@ -24,7 +24,7 @@ const DSDichVu: React.FC = () => {
                     throw new Error('Failed to fetch DSDichVus data');
                 }
                 const data = await response.json();
-                setDSDichVus(data.slice(0, 6)); // Hiển thị 6 dịch vụ đầu tiên
+                setDSDichVus(data.slice(0, )); // Hiển thị 6 dịch vụ đầu tiên
             } catch (error) {
                 setError('Error loading DSDichVus. Please try again later.');
                 console.error('Error fetching DSDichVus:', error);

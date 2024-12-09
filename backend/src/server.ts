@@ -26,7 +26,7 @@ app.use('/api', userRoutes);
 app.use('/api', dichvuRoutes);
 app.use('/api', goidichvuRoutes);
 app.use('/api', baivietRoutes);
-app.use('/api', datlichtRoutes); // Đây là nơi bạn sử dụng dichvuRoutes, đảm bảo rằng tuyến đường được sử dụng đúng cách
+app.use('/api', datlichtRoutes); 
 app.use('/api', phongRoutes);
 app.use('/api', datphongRoutes);
 // Route kiểm tra server hoạt động

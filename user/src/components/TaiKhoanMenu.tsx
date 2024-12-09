@@ -66,7 +66,7 @@ const TaiKhoanMenu: React.FC = () => {
                 <ul className="sidebar-menu">
                     <Link to="/TaiKhoan" className="menu-item active">Tài Khoản Của Tôi</Link>
                     <Link to="/BaiViet1" className="menu-item">Bài viết</Link>
-                    <Link to="/ThongBao" className="menu-item">Thông Báo</Link>
+                    <Link to="/DSDatPhong" className="menu-item">Danh sánh phòng </Link>
                     <Link to="/DSLich" className="menu-item">Lịch hẹn</Link>
                     <Link to="/ShopeeXu" className="menu-item">Shopee Xu</Link>
                 </ul>

@@ -12,7 +12,7 @@ const About: React.FC = () => {
             <Navbar />
             <>
 
-                <div className="container-fluid bg-light pt-5 pb-4" style={{ marginTop: "245px", }}>
+                <div className="container-fluid bg-light pt-5 pb-4" style={{ marginTop: "225px", }}>
                     <div className="container py-5">
                         <div className="d-flex flex-column text-center mb-5">
                             <h4 className="text-secondary mb-3">Bảng Giá</h4>

@@ -7,10 +7,12 @@ import Price from './pages/Price';
 import Booking from './pages/Booking';
 import Blog from './pages/Blog';
 import Blog2 from './pages/Blog2';
+import BlogDetail from './phanchinh/BlogDetail';
 import Contact from './pages/Contact';
 import TaiKhoan from './pages/taikhoan/TaiKhoan';
 import BaiViet1 from './pages/taikhoan/BaiViet1';
 import DSLich from './pages/taikhoan/DSLich';
+import DSDatPhong from './pages/taikhoan/DSDatPhong';
 import DatLich1 from './pages/DatLich1';
 import ThanhToan from './pages/ThanhToan';
 import Login from './pages/Login';
@@ -29,12 +31,13 @@ const App: React.FC = () => {
           <Route path="/Price" element={<Price />} />
           <Route path="/Booking" element={<Booking />} />
           <Route path="/Blog" element={<Blog />} />
-          <Route path="/Blog2" element={<Blog2 />} />
+          <Route path="/Blog2/:id" element={<Blog2 />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/TaiKhoan" element={<TaiKhoan />} />
           <Route path="/BaiViet1" element={<BaiViet1 />} />
           <Route path="/DSLich" element={<DSLich />} />
           <Route path="/DatLich1" element={<DatLich1 />} />
+          <Route path="/DSDatPhong" element={<DSDatPhong />} />
           <Route path="/ThanhToan" element={<ThanhToan />} />
 
           <Route path="/Login" element={<Login />} />

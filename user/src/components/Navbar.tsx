@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Navbar: React.FC = () => {
 
   return (
-    <div className="container-fluid p-0  " style={{position: "fixed",top: "160px",  left: 0,right: 0,zIndex: 999,}}>
+    <div className="container-fluid p-0  " style={{position: "fixed",top: "140px",  left: 0,right: 0,zIndex: 999,}}>
     
       <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
         <Link to="/" className="navbar-brand d-block d-lg-none">

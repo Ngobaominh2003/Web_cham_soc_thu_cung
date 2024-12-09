@@ -110,7 +110,7 @@ const Header: React.FC = () => {
                           src={avatar ? `http://localhost:5000/img/${avatar}` : '/img/icon_tk.png'} // Hiển thị avatar từ server hoặc ảnh mặc định
 
                           className="avatar"
-                          style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '50px' }}
+                          style={{ width: '30px', height: '30px', borderRadius: '50%', marginRight: '70px' }}
                         />
                       </a>
 

@@ -62,7 +62,7 @@ const Login: React.FC = () => {
     <div>
       <Header />
       <Navbar />
-      <div className="login-container"style={{marginTop: "245px",}}>
+      <div className="login-container"style={{marginTop: "225px",}}>
         <h1>Đăng nhập ngay</h1>
         <form className="login-form" onSubmit={handleLogin}>
           <div className="input-group">

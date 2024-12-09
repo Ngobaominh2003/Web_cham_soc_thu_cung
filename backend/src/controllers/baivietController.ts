@@ -23,6 +23,28 @@ export const getBaiVietByNguoiDung = async (req: Request, res: Response) => {
     }
 };
 
+// Lấy bài viết theo bai_viet_id
+export const getBaiVietById = async (req: Request, res: Response) => {
+    const { bai_viet_id } = req.params;
+
+    try {
+        // Use the model to fetch the post by ID
+        const baiViet = await BaiVietModel.getBaiVietById(Number(bai_viet_id));
+
+        // Check if the post exists
+        if (!baiViet) {
+            return res.status(404).json({ message: 'Bài viết không tồn tại' });
+        }
+
+        // Return the blog post
+        res.status(200).json(baiViet);
+    } catch (error) {
+        res.status(500).json({ message: 'Lỗi khi lấy bài viết', error });
+    }
+};
+
+
+
 // Tạo bài viết mới
 export const createBaiViet = async (req: Request, res: Response) => {
     const { nguoi_dung_id, tieu_de, noi_dung } = req.body;

@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
         <div>
             <Header />
             <Navbar />
-            <main style={{marginTop: "245px",}} >
+            <main style={{marginTop: "225px",}} >
                 <div className="container-fluid p-0" >
                     <div id="header-carousel" className="carousel slide" data-ride="carousel">
                         <div className="carousel-inner">
