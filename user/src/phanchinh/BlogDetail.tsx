@@ -80,7 +80,15 @@ const BlogDetail: React.FC = () => {
                     <img className="img-fluid w-100 mb-4" src={`http://localhost:5000/img/${post.hinh_anh}`} alt={post.tieu_de} />
                 )}
                 {/* Căn đều 2 bên nội dung */}
-                
+                <p style={{
+                    textAlign: 'justify',   // Căn đều văn bản
+                    lineHeight: '1.6',      // Khoảng cách giữa các dòng
+                    margin: '0 auto',       // Căn giữa phần tử
+                    maxWidth: '800px',      // Giới hạn chiều rộng tối đa cho bài viết
+                    padding: '0 15px'       // Thêm padding để tạo không gian bên trái và bên phải
+                }}>
+                    {post.noi_dung}
+                </p>
             </div>
 
 

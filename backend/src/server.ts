@@ -7,6 +7,7 @@ import baivietRoutes from './routes/baivietRoutes';
 import datlichtRoutes from './routes/datlichRouter'; 
 import phongRoutes from './routes/phongRouter'; 
 import datphongRoutes from './routes/datphongRouter'; 
+import hoadonRoutes from './routes/hoadonRouter'; 
 import path from 'path';
 
 const app = express();
@@ -29,6 +30,7 @@ app.use('/api', baivietRoutes);
 app.use('/api', datlichtRoutes); 
 app.use('/api', phongRoutes);
 app.use('/api', datphongRoutes);
+app.use('/api', hoadonRoutes);
 // Route kiểm tra server hoạt động
 
 

@@ -83,7 +83,7 @@ const DSBlog: React.FC = () => {
           ))}
         </div>
       </div>
-      <Footer />
+      
     </div>
   );
 };
