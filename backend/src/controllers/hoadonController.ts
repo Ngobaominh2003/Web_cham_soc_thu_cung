@@ -1,87 +1,43 @@
 import { Request, Response } from 'express';
-import * as HoaDonModel from '../models/HoaDon';
+import * as HoaDonModel from '../models/HoaDon'; // Import tất cả từ HoaDonModel
 
-// Lấy tất cả hóa đơn
-export const getAllHoaDonController = async (req: Request, res: Response) => {
-    try {
-        const hoaDons = await HoaDonModel.getAllHoaDon();
-        res.status(200).json({
-            message: 'Lấy tất cả hóa đơn thành công!',
-            data: hoaDons
-        });
-    } catch (error) {
-        res.status(500).json({
-            message: 'Lỗi khi lấy tất cả hóa đơn!',
-            error: error instanceof Error ? error.message : 'Unknown error'
-        });
-    }
+// Controller lấy tất cả hóa đơn
+export const getAllInvoicesController = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const invoices = await HoaDonModel.getAllInvoices();
+    res.status(200).json({ success: true, data: invoices });
+  } catch (error) {
+    console.error('Lỗi khi lấy tất cả hóa đơn:', error);
+    res.status(500).json({ success: false, message: 'Không thể lấy danh sách hóa đơn' });
+  }
 };
 
-// Tạo hóa đơn từ đặt phòng
-export const createHoaDonFromDatPhongAndDatLichController = async (req: Request, res: Response) => {
-    const { nguoiDungId } = req.body;
+// Controller lấy hóa đơn theo ID người dùng và ngày tạo
+export const getInvoicesByUserIdAndDateController = async (req: Request, res: Response): Promise<void> => {
+  const { nguoiDungId, ngayTao } = req.params; // Lấy các tham số từ URL (ID người dùng và ngày tạo)
 
-    if (!nguoiDungId) {
-        return res.status(400).json({ message: 'Thiếu thông tin người dùng!' });
+  try {
+    const invoices = await HoaDonModel.getInvoicesByUserIdAndDate(Number(nguoiDungId), ngayTao);
+    if (invoices.length === 0) {
+      res.status(404).json({ success: false, message: 'Không có hóa đơn nào' });
+      return;
     }
-
-    try {
-        const hoaDon = await HoaDonModel.createHoaDonAutomatically(nguoiDungId);
-        return res.status(201).json({
-            message: 'Tạo hóa đơn thành công từ đặt phòng và đặt lịch!',
-            hoaDon
-        });
-    } catch (error) {
-        res.status(500).json({
-            message: 'Lỗi khi tạo hóa đơn từ đặt phòng và đặt lịch!',
-            error: error instanceof Error ? error.message : 'Lỗi không xác định'
-        });
-    }
+    res.status(200).json({ success: true, data: invoices });
+  } catch (error) {
+    console.error('Lỗi khi lấy hóa đơn theo ID người dùng và ngày tạo:', error);
+    res.status(500).json({ success: false, message: 'Không thể lấy hóa đơn theo ID người dùng và ngày tạo' });
+  }
 };
 
+// Controller xóa hóa đơn theo ID
+export const deleteInvoiceController = async (req: Request, res: Response): Promise<void> => {
+  const { hoaDonId } = req.params; // Lấy ID hóa đơn từ URL
 
-
-
-// Cập nhật hóa đơn
-export const updateHoaDonController = async (req: Request, res: Response) => {
-    const { id } = req.params;
-    const hoaDonData = req.body;
-
-    try {
-        const result = await HoaDonModel.updateHoaDon(Number(id), hoaDonData);
-
-        if (result.affectedRows > 0) {
-            return res.status(200).json({
-                message: 'Cập nhật hóa đơn thành công!',
-                data: result
-            });
-        } else {
-            return res.status(404).json({ message: 'Không tìm thấy hóa đơn để cập nhật!' });
-        }
-    } catch (error) {
-        res.status(500).json({
-            message: 'Lỗi khi cập nhật hóa đơn!',
-            error: error instanceof Error ? error.message : 'Unknown error'
-        });
-    }
-};
-
-// Xóa hóa đơn
-export const deleteHoaDonController = async (req: Request, res: Response) => {
-    const { id } = req.params;
-
-    try {
-        const result = await HoaDonModel.deleteHoaDon(Number(id));
-
-        if (result.affectedRows > 0) {
-            return res.status(200).json({ message: 'Xóa hóa đơn thành công!' });
-        } else {
-            return res.status(404).json({ message: 'Không tìm thấy hóa đơn để xóa!' });
-        }
-    } catch (error) {
-        res.status(500).json({
-            message: 'Lỗi khi xóa hóa đơn!',
-            error: error instanceof Error ? error.message : 'Unknown error'
-        });
-    }
+  try {
+    await HoaDonModel.deleteInvoice(Number(hoaDonId));
+    res.status(200).json({ success: true, message: 'Hóa đơn đã được xóa thành công' });
+  } catch (error) {
+    console.error('Lỗi khi xóa hóa đơn:', error);
+    res.status(500).json({ success: false, message: 'Không thể xóa hóa đơn' });
+  }
 };

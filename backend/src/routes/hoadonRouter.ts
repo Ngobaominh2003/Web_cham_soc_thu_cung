@@ -3,13 +3,9 @@ import * as HoaDonController from '../controllers/hoadonController';
 
 const router = express.Router();
 
-// Lấy tất cả hóa đơn
-router.get('/hoa-don', HoaDonController.getAllHoaDonController);
-router.post('/hoa-don/create', HoaDonController.createHoaDonFromDatPhongAndDatLichController);
-// Cập nhật hóa đơn
-router.put('/hoa-don/:id', HoaDonController.updateHoaDonController);
-
-// Xóa hóa đơn
-router.delete('/hoa-don/:id', HoaDonController.deleteHoaDonController);
+// Đăng ký các route cho hóa đơn
+router.get('/hoadon', HoaDonController.getAllInvoicesController);
+router.get('/hoadon/:nguoiDungId/:ngayTao', HoaDonController.getInvoicesByUserIdAndDateController);
+router.delete('/hoadon/:hoaDonId', HoaDonController.deleteInvoiceController);
 
 export default router;

@@ -69,16 +69,16 @@ const Phong: React.FC = () => {
         } else {
           newStatus = 'đang trống';
         }
-  
+
         // Cập nhật trạng thái phòng trong state
         return { ...room, trang_thai_phong: newStatus };
       }
       return room;
     });
-  
+
     // Cập nhật state với danh sách phòng mới
     setRooms(updatedRooms);
-  
+
     try {
       // Gửi yêu cầu cập nhật trạng thái lên server
       await handleChangeRoomStatus(phong_id, updatedRooms.find(room => room.phong_id === phong_id)?.trang_thai_phong || 'đang trống');
@@ -86,7 +86,7 @@ const Phong: React.FC = () => {
       console.error('Lỗi khi cập nhật trạng thái phòng trên server:', error);
     }
   };
-  
+
 
   // Hàm cập nhật trạng thái cho tất cả các phòng
   const handleUpdateAllRooms = async () => {
@@ -110,33 +110,33 @@ const Phong: React.FC = () => {
 
         {/* ================ Danh Sách Phòng ================= */}
         <div className="details">
-          <div className="phong-details">
-            <div className="recentOrders">
-              <div className="cardHeader">
-                <h2>Danh Sách Phòng</h2>
-              </div>
 
-              <div className="phong-grid">
-                {/* Tạo các phòng dưới dạng các ô vuông */}
-                {rooms.map((room) => (
-                  <div
-                    key={room.phong_id}
-                    className={`phong-room ${getRoomColor(room.trang_thai_phong)}`} // Áp dụng màu phòng dựa trên trạng thái
-                    onClick={() => handleRoomClick(room.phong_id)} // Xử lý sự kiện khi nhấn vào phòng
-                  >
-                    <span className="phong-roomText">{room.so_phong}</span> {/* Hiển thị số phòng */}
-                  </div>
-                ))}
-              </div>
+          <div className="recentOrders">
+            <div className="cardHeader">
+              <h2>Danh Sách Phòng</h2>
+            </div>
+
+            <div className="phong-grid">
+              {/* Tạo các phòng dưới dạng các ô vuông */}
+              {rooms.map((room) => (
+                <div
+                  key={room.phong_id}
+                  className={`phong-room ${getRoomColor(room.trang_thai_phong)}`} // Áp dụng màu phòng dựa trên trạng thái
+                  onClick={() => handleRoomClick(room.phong_id)} // Xử lý sự kiện khi nhấn vào phòng
+                >
+                  <span className="phong-roomText">{room.so_phong}</span> {/* Hiển thị số phòng */}
+                </div>
+              ))}
             </div>
           </div>
+
         </div>
 
         {/* ================ Form cập nhật bài viết ================= */}
         <div className="details-container">
-        <PhongAdd />
-        <PhongUpdate />
-          
+          <PhongAdd />
+          <PhongUpdate />
+
         </div>
       </div>
     </div>
