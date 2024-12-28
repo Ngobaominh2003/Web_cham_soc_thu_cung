@@ -8,6 +8,7 @@ import datlichtRoutes from './routes/datlichRouter';
 import phongRoutes from './routes/phongRouter'; 
 import datphongRoutes from './routes/datphongRouter'; 
 import hoadonRoutes from './routes/hoadonRouter'; 
+import thongkeRouters from './routes/thongkeRouter'; 
 import path from 'path';
 
 const app = express();
@@ -31,6 +32,7 @@ app.use('/api', datlichtRoutes);
 app.use('/api', phongRoutes);
 app.use('/api', datphongRoutes);
 app.use('/api', hoadonRoutes);
+app.use('/api', thongkeRouters);
 // Route kiểm tra server hoạt động
 
 

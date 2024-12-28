@@ -17,7 +17,7 @@ interface DatLich1Props {
     onClose: () => void;
 }
 
-const DatLich1: React.FC<Partial<DatLich1Props>> = ({ isOpen = false, dichVu = null, onClose = () => {} }) => {
+const DatLich1: React.FC<Partial<DatLich1Props>> = ({ isOpen = false, dichVu = null, onClose = () => { } }) => {
     const [formData, setFormData] = useState({
         nguoi_dung_id: '',
         tenKhachHang: '',

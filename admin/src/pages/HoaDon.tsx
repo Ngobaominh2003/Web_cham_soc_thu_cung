@@ -89,14 +89,14 @@ const HoaDon: React.FC = () => {
 
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(18);
-    doc.text('Hóa Đơn', 20, 20);
+    doc.text('Hoa DonDon', 20, 20);
 
     doc.setFontSize(12);
-    doc.text(`Hóa Đơn ID: ${hoaDon.hoa_don_id}`, 20, 30);
-    doc.text(`Tên Khách Hàng: ${customerMap[hoaDon.nguoi_dung_id] || 'Khách không xác định'}`, 20, 40);
-    doc.text(`Tổng Tiền: ${formattedTongTien} VND`, 20, 50);
-    doc.text(`Ngày Tạo: ${new Date(hoaDon.ngay_tao).toLocaleDateString()}`, 20, 60);
-    doc.text(`Trạng Thái: ${hoaDon.trang_thai}`, 20, 70);
+    doc.text(`ID Hoa Don: ${hoaDon.hoa_don_id}`, 20, 30);
+    doc.text(`Ten Khach Hang: ${customerMap[hoaDon.nguoi_dung_id] || 'Khách không xác định'}`, 20, 40);
+    doc.text(`Tong Tien: ${formattedTongTien} VND`, 20, 50);
+    doc.text(`Ngay Tao: ${new Date(hoaDon.ngay_tao).toLocaleDateString()}`, 20, 60);
+    
 
     doc.save(`HoaDon_${hoaDon.hoa_don_id}.pdf`);
   };
@@ -129,7 +129,7 @@ const HoaDon: React.FC = () => {
                 </select>
               </div>
             </div>
-            <table>
+            <table >
               <thead>
                 <tr>
                   <th>Tên khách hàng</th>

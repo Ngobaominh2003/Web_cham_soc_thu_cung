@@ -96,9 +96,14 @@ const GoiDichVu: React.FC = () => {
                     <tr key={item.goi_dich_vu_id} onClick={() => handleRowClick(item)}>
                       <td>{item.ten_goi || 'Không có tên gói'}</td>
                       <td>{item.mo_ta || 'Không có mô tả'}</td>
-                      <td>{item.gia_1_thang ? `${item.gia_1_thang} VND` : 'Không có giá'}</td>
-                      <td>{item.gia_6_thang ? `${item.gia_6_thang} VND` : 'Không có giá'}</td>
-                      <td>{item.gia_1_nam ? `${item.gia_1_nam} VND` : 'Không có giá'}</td>
+                      <td>
+                        {item.gia_1_thang
+                          ? `${(item.gia_1_thang)} VND`
+                          : 'Không có giá'}
+                      </td>
+
+                      <td>{item.gia_6_thang ? `${(item.gia_6_thang)} VND` : 'Không có giá'}</td>
+                      <td>{item.gia_1_nam ? `${(item.gia_1_nam)} VND` : 'Không có giá'}</td>
                       <td>
                         <button className="delete-btn" onClick={(e) => { e.stopPropagation(); handleDelete(item.goi_dich_vu_id); }}>
                           Xóa

@@ -18,6 +18,7 @@ interface LichHen {
 interface DichVu {
     dich_vu_id: string;
     ten_dich_vu: string;
+    gia:string;
 }
 
 const LichHenList: React.FC = () => {
@@ -93,6 +94,7 @@ const LichHenList: React.FC = () => {
         const dichVu = dichVuList.find((dv) => dv.dich_vu_id === dich_vu_id);
         return dichVu ? dichVu.ten_dich_vu : 'Không xác định';
     };
+   
 
     return (
         <div>
@@ -126,6 +128,7 @@ const LichHenList: React.FC = () => {
                                             <td>{lichHen.ten_kh}</td>
                                             <td>{lichHen.email_kh}</td>
                                             <td>{getTenDichVu(lichHen.dich_vu_id)}</td>
+                    
                                             <td>{lichHen.ngay_dat}</td>
                                             <td>{lichHen.gio_dat}</td>
                                             <td>

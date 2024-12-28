@@ -8,15 +8,15 @@ interface Phong {
 
 const DatPhongAdd: React.FC = () => {
   const [formData, setFormData] = useState({
-    nguoi_dung_id: '', // User ID
-    ten_khach_hang: '', // Customer name
-    email: '', // Customer email
-    sdt: '', // Phone number
-    phong_id: '', // Room ID
-    ngay_bat_dau: '', // Start date
-    ngay_ket_thuc: '', // End date
-    can_nang: '', // Weight
-    tien: '', // Amount
+    nguoi_dung_id: '', 
+    ten_khach_hang: '', 
+    email: '', 
+    sdt: '', 
+    phong_id: '', 
+    ngay_bat_dau: '', 
+    ngay_ket_thuc: '', 
+    can_nang: '', 
+    tien: '', 
   });
 
   const [rooms, setRooms] = useState<any[]>([]); // State for rooms
@@ -44,7 +44,7 @@ const DatPhongAdd: React.FC = () => {
 
     fetchRooms();
   }, []);
-  
+
   // Tính toán tổng tiền mỗi khi các trường liên quan thay đổi
   const calculateTotalPrice = () => {
     if (formData.ngay_bat_dau && formData.ngay_ket_thuc && formData.can_nang) {
@@ -81,26 +81,23 @@ const DatPhongAdd: React.FC = () => {
     calculateTotalPrice();
   }, [formData.ngay_bat_dau, formData.ngay_ket_thuc, formData.can_nang]);
 
-  
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     // Kiểm tra thông tin khách hàng và phòng
     if (!formData.ten_khach_hang || !formData.email || !formData.phong_id) {
       alert('Vui lòng điền đầy đủ thông tin khách hàng và mã phòng!');
       return;
     }
-  
+
     try {
       // Gửi yêu cầu thêm đơn đặt phòng
       const response = await axios.post('http://localhost:5000/api/datphong', formData);
-  
-      if (response.status === 201) { // Mã 201 cho việc tạo mới thành công
+
+      if (response.status === 201) { 
         alert('Thêm đơn đặt phòng thành công!');
-        
-        // Sau khi thêm đơn đặt phòng, gọi hàm cập nhật trạng thái phòng
         const updateRoomResponse = await updateRoomStatus(formData.phong_id);
-        
         if (updateRoomResponse) {
           alert('Cập nhật trạng thái phòng thành công!');
         } else {
@@ -114,7 +111,7 @@ const DatPhongAdd: React.FC = () => {
       alert('Đã xảy ra lỗi khi thêm đơn đặt phòng!');
     }
   };
-  
+
   // Hàm cập nhật trạng thái phòng
   const updateRoomStatus = async (phong_id: string) => {
     try {
@@ -122,7 +119,7 @@ const DatPhongAdd: React.FC = () => {
         `http://localhost:5000/api/phong/status/${phong_id}`,
         { trang_thai_phong: 'đã đặt' } // Cập nhật trạng thái phòng
       );
-  
+
       if (updateRoomResponse.status === 200) {
         return true; // Trả về true khi cập nhật thành công
       } else {
@@ -133,8 +130,8 @@ const DatPhongAdd: React.FC = () => {
       return false; // Trả về false nếu có lỗi
     }
   };
-  
-  
+
+
   return (
     <div className="details">
       <div className="recentOrders">

@@ -102,7 +102,14 @@ const Navigation: React.FC = () => {
               <span className="title">Lịch Đặt Phòng </span>
             </Link>
           </li>
-
+          <li>
+            <Link to="/ThongKe">
+              <span className="icon">
+                <ion-icon name="paw-outline"></ion-icon>
+              </span>
+              <span className="title">Thống Kê</span>
+            </Link>
+          </li>
           <li>
             <Link to="/ThuCung">
               <span className="icon">

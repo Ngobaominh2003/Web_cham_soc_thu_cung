@@ -63,11 +63,11 @@ const DatPhong: React.FC = () => {
     const endDate = new Date(ngay_ket_thuc);
 
     if (today < startDate) {
-      return { backgroundColor: '#ffcc00', color: '#fff' }; // Sắp tới
+      return { backgroundColor: '#ffcc00', color: '#fff' }; 
     } else if (today >= startDate && today <= endDate) {
-      return { backgroundColor: '#4CAF50', color: '#fff' }; // Đang diễn ra
+      return { backgroundColor: '#4CAF50', color: '#fff' }; 
     } else {
-      return { backgroundColor: '#f44336', color: '#fff' }; // Đã kết thúc
+      return { backgroundColor: '#f44336', color: '#fff' }; 
     }
   };
 
@@ -142,7 +142,7 @@ const DatPhong: React.FC = () => {
                         </span>
                       </td>
                       <td>
-                        <button
+                        <button 
                           className="delete-btn"
                           onClick={(e) => {
                             e.stopPropagation();

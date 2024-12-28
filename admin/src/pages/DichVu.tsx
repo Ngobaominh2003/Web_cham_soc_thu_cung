@@ -77,7 +77,7 @@ const DichVu: React.FC = () => {
               <a href="#" className="btn">Xem Tất Cả</a> 
             </div> 
 
-            <table> 
+            <table > 
               <thead> 
                 <tr> 
                   <th>Tên dịch vụ</th> 
@@ -97,7 +97,7 @@ const DichVu: React.FC = () => {
                     > 
                       <td>{dichVu.ten_dich_vu || 'Không có tên'}</td> 
                       <td>{dichVu.mo_ta || 'Không có mô tả'}</td> 
-                      <td>{dichVu.gia} VND</td> 
+                      <td>{ (dichVu.gia) } VND</td> 
                       <td> 
                         <img src={`http://localhost:5000/img/${dichVu.logo}`} alt={dichVu.ten_dich_vu} width="50" /> 
                       </td> 
